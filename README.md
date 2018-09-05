@@ -1,2 +1,2 @@
 # amycarss.github.io
-SI 539 coursework
+SI 539 goodness
