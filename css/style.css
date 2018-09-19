@@ -1,13 +1,14 @@
 body{
     background:#fefefe;
-    font-family: Noto serif, Georgia, serif;
+    font-family: "Merriweather", Georgia, serif;
     font-weight:400;
     list-style: height 1.5em;
     color:#202020;
     width:100%;
 }
 h1, h2, h3, h4, h5, h6{
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    Font-weight:700;
 }
 article{
     width:80%;
@@ -23,3 +24,17 @@ nav a{
 }
 
 img.hero{width:100%}
+
+a {
+	color:#9a3324;
+	text-decoration:underline;
+}
+a:active, a:hover {
+	color:#702082;
+}
+a:visited{
+	color:#1779ba;
+    }
+footer{
+    font-family:"Pathway Gothic One", Helvetica, sans-serif
+}
