@@ -10,6 +10,17 @@ h1, h2, h3, h4, h5, h6{
     font-family: "Montserrat", Helvetica, sans-serif;
     Font-weight:700;
 }
+
+header{
+    background:#00274C;
+    padding:2em 0 .5em;
+}
+footer{
+    font-family:"Pathway Gothic One", Helvetica, sans-serif;
+    background:#202020;
+    padding:.5em 0 1em .5em;
+    color:#ededed;
+}
 article{
     width:80%;
     margin:20px, 40px;
@@ -29,6 +40,10 @@ img.hero{
 section img{
     width:30%;
 }
+a:hover i, header nav li a:hover, footer a:hover{
+    color:#ffcb05;
+}
+
 a {
 	color:#9a3324;
 	text-decoration:underline;
@@ -39,6 +54,12 @@ a:active, a:hover {
 a:visited{
 	color:#1779ba;
     }
-footer{
-    font-family:"Pathway Gothic One", Helvetica, sans-serif
+
+header nav ul li a:visted, footer address a:visited{
+        color:#ededed;
+}
+i{
+   margin:1em;
+   color:#ededed;
+   font-size:20px;
 }
