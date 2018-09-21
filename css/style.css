@@ -10,6 +10,10 @@ h1, h2, h3, h4, h5, h6{
     font-family: "Montserrat", Helvetica, sans-serif;
     Font-weight:700;
 }
+h1{
+    font-size:2em;
+font-weight:900;
+}
 
 header{
     background:#00274C;
@@ -35,12 +39,12 @@ nav a{
 }
 
 img.hero{
-    width:80%
+    width:80%;
 }
 section img{
     width:30%;
 }
-a:hover i, header nav li a:hover, footer a:hover{
+header nav li a:hover, footer a:hover{
     color:#ffcb05;
 }
 
@@ -49,10 +53,10 @@ a {
 	text-decoration:underline;
 }
 footer address a, nav ul li a{
-    color:#f8f8f8
+    color:#ededed;
 }
 footer address a:visited{
-    color:#ffcb05
+    color:#ffcb05;
 }
 a:active, a:hover {
 	color:#702082;
