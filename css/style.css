@@ -48,16 +48,17 @@ a {
 	color:#9a3324;
 	text-decoration:underline;
 }
+footer address a, nav ul li a{
+    color:#f8f8f8
+}
+footer address a:visited{
+    color:#ffcb05
+}
 a:active, a:hover {
 	color:#702082;
 }
-a:visited{
-	color:#1779ba;
-    }
 
-header nav ul li a:visted, footer address a:visited{
-        color:#ededed;
-}
+
 i{
    margin:1em;
    color:#ededed;
