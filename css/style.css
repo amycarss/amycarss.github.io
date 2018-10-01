@@ -38,12 +38,6 @@ nav a{
     text-decoration:none;
 }
 
-img.hero{
-    width:80%;
-}
-section img{
-    width:30%;
-}
 header nav li a:hover, footer a:hover{
     color:#ffcb05;
 }
@@ -61,5 +55,28 @@ footer address a:visited{
 a:active, a:hover {
 	color:#702082;
 }
+.main{
+    display:grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-rows: auto;
+}
 
+.container{
+    grid-column-start:2;
+    grid-row-start:3;
+}
+.intro{
+    grid-column-start:2;
+    grid-row-start:2;
+}
+.card img, .card h2, .card h3, .card p{
+    width:85%;
+}
 
+.container .card{
+    justify-self:start;
+
+}
+img.hero{
+    grid-column:2/5;
+}
