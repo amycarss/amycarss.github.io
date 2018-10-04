@@ -82,7 +82,7 @@ a:active, a:hover {
     justify-self:start;
 }
 img.hero{
-    max-width:1240px;
+    grid-column:span 5;
 }
 i{
     padding-left:.5em;
