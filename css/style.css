@@ -84,3 +84,7 @@ a:active, a:hover {
 img.hero{
     max-width:1240px;
 }
+i{
+    padding-left:.5em;
+    font-size:.75em;
+}
