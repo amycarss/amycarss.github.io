@@ -55,28 +55,23 @@ footer address a:visited{
 a:active, a:hover {
 	color:#702082;
 }
-.main{
+.container{
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
     grid-template-rows: auto;
 }
-
-.container{
-    grid-column-start:2;
-    grid-row-start:3;
-}
+   
 .intro{
-    grid-column-start:2;
-    grid-row-start:2;
+    grid-column:2/4;
+    grid-row-start:1;
 }
 .card img, .card h2, .card h3, .card p{
     width:85%;
 }
-
-.container .card{
-    justify-self:start;
-
+.wrapper{
+    grid-column:2/4;
+    grid-row:2/3
 }
-img.hero{
-    grid-column:2/5;
-}
+.card{
+    grid-column:span 1;
+    }
