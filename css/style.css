@@ -25,22 +25,23 @@ footer{
     padding:.5em 0 1em .5em;
     color:#ededed;
 }
-article{
-    width:80%;
-    margin:20px, 40px;
-}
+
 .page{
-    max-width:11080px;
+    max-width:1080px;
 }
+
 nav li{
     display:inline-block;
-    width:20%;
     font-family:Helvetica, sans-serif;
 }
 nav a{
     text-decoration:none;
 }
-
+nav ul{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+}
 header nav li a:hover, footer a:hover{
     color:#ffcb05;
 }
