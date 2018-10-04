@@ -27,7 +27,10 @@ footer{
 }
 
 .page{
-    max-width:1080px;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-rows: auto;
 }
 
 nav li{
@@ -59,16 +62,11 @@ footer address a:visited{
 a:active, a:hover {
 	color:#702082;
 }
-/.container{
-    display:grid;
-    grid-template-columns: 5% 1fr 1fr 1fr 5%;
-    grid-template-rows: 50px 50px;
+.container{
+    grid-column:2/5;
+    grid-row-start:2;
 }
    
-.intro{
-    grid-column:2/6;
-    grid-row-start:1;
-}
 .card img, .card h2, .card h3, .card p{
     width:85%;
 }
@@ -82,4 +80,4 @@ a:active, a:hover {
 .card{
     grid-column:span 1;
     justify-self:start;
-    }
+}
