@@ -29,6 +29,9 @@ article{
     width:80%;
     margin:20px, 40px;
 }
+.page{
+    max-width:11080px;
+}
 nav li{
     display:inline-block;
     width:20%;
@@ -55,23 +58,27 @@ footer address a:visited{
 a:active, a:hover {
 	color:#702082;
 }
-.container{
+/.container{
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
-    grid-template-rows: auto;
+    grid-template-rows: 50px 50px;
 }
    
 .intro{
-    grid-column:2/4;
+    grid-column:2/6;
     grid-row-start:1;
 }
 .card img, .card h2, .card h3, .card p{
     width:85%;
 }
 .wrapper{
-    grid-column:2/4;
-    grid-row:2/3
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-column-start:2;
+    grid-column:span 3;
 }
 .card{
     grid-column:span 1;
+    justify-self:start;
     }
