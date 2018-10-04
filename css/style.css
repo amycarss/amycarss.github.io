@@ -18,6 +18,7 @@ font-weight:900;
 header{
     background:#00274C;
     padding:2em 0 .5em;
+    width:100%;
 }
 footer{
     font-family:"Pathway Gothic One", Helvetica, sans-serif;
@@ -31,6 +32,7 @@ footer{
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
     grid-template-rows: auto;
+    margin:0 auto;
 }
 
 nav li{
@@ -81,10 +83,10 @@ a:active, a:hover {
     grid-column:span 1;
     justify-self:start;
 }
-img.hero{
-    grid-column:span 5;
-}
 i{
     padding-left:.5em;
     font-size:.75em;
+}
+.hero{
+    width:1200px;
 }
