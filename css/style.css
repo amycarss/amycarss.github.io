@@ -81,3 +81,6 @@ a:active, a:hover {
     grid-column:span 1;
     justify-self:start;
 }
+img.hero{
+    max-width:1240px;
+}
