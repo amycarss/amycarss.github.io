@@ -1,20 +1,35 @@
+/*typography*/
+
 body{
     background:#f8f8f8;
     font-family: "Merriweather", Georgia, serif;
     font-weight:400;
-    list-style: height 1.5em;
+    font-size:16px;
     color:#202020;
     width:100%;
 }
 h1, h2, h3, h4, h5, h6{
     font-family: "Montserrat", Helvetica, sans-serif;
-    Font-weight:700;
+    font-weight:700;
+    line-height:1.6em;
 }
 h1{
     font-size:2em;
 font-weight:900;
 }
-
+h2{
+    font-size:1.5em;
+}
+h3{
+    font-size:1.3em;
+}
+h4{
+    font-size:1.15em;
+}
+p{
+    line-height:1.65em;
+}
+/*header and footer styles*/
 header{
     background:#00274C;
     padding:2em 0 .5em;
@@ -25,8 +40,7 @@ footer{
     background:#202020;
     padding:.5em 0 1em .5em;
     color:#ededed;
-    background-image: url("../images/asphalt.jpg")
-}
+    }
 address{
     font-style:normal;
     text-transform:uppercase;
@@ -35,14 +49,14 @@ address{
     display:inline;
     background: #202020;
 }
+/*sets desktop page columns*/
 .page{
-    max-width:1200px;
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
     grid-template-rows: auto;
     margin:0 auto;
 }
-
+/*main navigation*/
 nav li{
     display:inline-block;
     font-family:Helvetica, sans-serif;
@@ -58,7 +72,7 @@ nav ul{
 header nav li a:hover, footer a:hover{
     color:#ffcb05;
 }
-
+/*link states*/
 a {
 	color:#9a3324;
 	text-decoration:underline;
@@ -72,29 +86,53 @@ footer address a:visited{
 a:active, a:hover {
 	color:#702082;
 }
-.container{
+/*positions content in the middle of the page*/
+div.container{
     grid-column:2/5;
     grid-row-start:2;
 }
-   
-.card img, .card h2, .card h3, .card p{
-    width:85%;
+/*card array*/
+div.card img, div.card h2, div.card h3, div.card p{
+    width:90%;
 }
-.wrapper{
+/*mobile layout*/
+div.wrapper{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-column-start:2;
-    grid-column:span 3;
+    grid-template-columns:1fr;
 }
-.card{
-    grid-column:span 1;
-    justify-self:start;
+/*layout changes to left-aligned image at 600px wide browser window*/
+@media screen and(min-width:600px){
+    div.card{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+    }
+    div.card img{
+        grid-column:1 / span 1;
+        justify-self:start;
+    }
+    div.card div{
+        grid-column:2 / span 2;
+        justify-self:start;
+    }
 }
+/*layout changes to tiled cards at 900 px wide browser window*/
+@media only screen and (min-width:900px) {
+    .wrapper{
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-column:span 3;
+        grid-row-gap: 40px;
+    }
+}
+
+/*icons*/
 i{
     padding-left:.5em;
     font-size:.75em;
 }
+/* hero image*/
 .hero{
-    width:1200px;
+    width:100%;
+    grid-column:1/6;
+    grid-row-start:1;
 }
