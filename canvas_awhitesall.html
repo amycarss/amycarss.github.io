@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas Example</title>
+	<style type="text/css">
+		canvas{
+			border: 1px solid black;
+		}
+	</style>
+
+
+</head>
+<body>
+	<h1>Canvas Example</h1>
+	<canvas id="canvas" width="500" height="500">
+  An alternative text describing what your canvas displays. 
+</canvas>
+
+<script>
+	//Rectangles
+	var canvas = document.querySelector('canvas');
+	var ctx = canvas.getContext('2d');
+	ctx.fillStyle = 'green';
+	ctx.fillRect(200, 200, 100, 100);
+	// ctx.strokeRect(225,225,50,50);
+	ctx.fillStyle = 'red';
+
+	ctx.arc(250,250,25,0,2*Math.PI);
+	ctx.fill();
+	ctx.clearRect(250,250,10,10);
+
+
+	//Paths
+
+	// https://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/
+
+	// arc(x, y, radius, startAngle, endAngle, anticlockwise)
+	// closePath() connects the first point with the last point
+	ctx.beginPath();					 //quit old drawing, start new one
+	ctx.arc(75,75,50,0,Math.PI*2,true);  // Outer circle
+
+	// ctx.moveTo(110,75);					 
+	// ctx.arc(75,75,35,0,Math.PI,false);   // Mouth
+	ctx.moveTo(55,100);					 
+	ctx.arc(75,100,20,Math.PI*1,0,false);   // Mouth
+
+
+	ctx.moveTo(65,65);
+	ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
+
+	ctx.moveTo(95,65);
+	ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
+	ctx.stroke();
+
+	//Lines
+	// Filled triangle
+	ctx.beginPath();
+	ctx.moveTo(425,345);
+	ctx.lineTo(425,425);
+	ctx.lineTo(345,345)
+	ctx.fillStyle = 'blue';
+	ctx.fill();
+
+	// Stroked triangle
+	ctx.beginPath();
+	ctx.moveTo(345,345);
+	ctx.lineTo(345,425);
+	ctx.lineTo(425,425);
+	ctx.closePath();
+	ctx.stroke();
+
+
+	//Text
+	ctx.fillStyle = '#00F';
+	ctx.font = 'Italic 30px Sans-Serif';
+
+	ctx.strokeText('Your Name', 50, 400);
+
+	ctx.font = 'Bold 30px Arial';
+	ctx.fillText('Different Font!', 250, 50);
+
+
+	function myFunction(){
+    var x = document.getElementById("myFile");
+    var txt = "";
+    if ('files' in x) {
+        if (x.files.length == 0) {
+            txt = "Select a file";
+        } else {
+        	var img = new Image();
+            img.src = "images/" + x.files[0].name;
+			img.onload = function(){
+				ctx.drawImage(img, 25, 300);
+				// ctx.drawImage(img, img.width / 4, img.height / 4, img.width / 2, img.height / 2, 0, 0, canvas.width, canvas.height);
+				ctx.fillStyle = '#00F';
+			ctx.font = 'Italic 30px Sans-Serif';
+
+			ctx.strokeText('Your Name', 50, 400);
+
+      		}
+      	}
+      } 
+    else {
+        if (x.value == "") {
+            txt += "Select a file.";
+        } else {
+            txt += "The files property is not supported by your browser!";
+            txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+        }
+    }
+    
+}
+</script>
+
+	<br><input type="file" id="myFile" size="50" onchange="myFunction()"><br>
+
+</body>
+</html>
