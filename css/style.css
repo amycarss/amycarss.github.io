@@ -60,13 +60,16 @@ address{
 }
 /*main navigation*/
 /*mobile view*/
-nav{
+nav, nav ul{
     width: 100%;
     min-width:350px;
 }
-nav li{
+nav li, nav li a{
     width:100%;
     padding:1em;
+}
+
+nav li{
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
 }
@@ -75,6 +78,13 @@ nav li:first-child{
 }
 nav li:last-child{
     border:none;
+}
+nav li a{
+    text-decoration:none;
+}
+nav li a:hover{
+    background-color:#f8f8f8;
+    color:#00274C;
 }
 /*switches to horizontal nav on screens 650px and wider*/
 @media only screen and (min-width:650px) {
@@ -94,10 +104,12 @@ nav li:first-child{
     justify-content:space-between;
     align-content:center
     }
+    header nav li a:hover, footer a:hover{
+        color:#ffcb05;
+        background-color:#00274C;
+    }
 }
-header nav li a:hover, footer a:hover{
-    color:#ffcb05;
-}
+
 /*link states*/
 a {
 	color:#9a3324;
@@ -139,6 +151,7 @@ div.card{
 
 /*mobile layout of card array stacks cards vertically, elements inside cards stack vertically. At 700px, image aligns left with text blurb in same row*/
 @media only screen and (min-width:700px) {
+        }
     div.card{
          display:flex;
      }
