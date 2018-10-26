@@ -86,17 +86,14 @@ nav li a:hover{
     background-color:#f8f8f8;
     color:#00274C;
 }
-/*switches to horizontal nav on screens 650px and wider*/
+/*switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
 @media only screen and (min-width:650px) {
     nav li{
     display:inline-block;
-    border:none
+    border:none;
 }
-nav li:first-child{
+    nav li:first-child{
     border-top:none;
-}
-    nav a{
-    text-decoration:none;
 }
     nav ul{
     display:flex;
@@ -149,23 +146,20 @@ div.card{
      padding:1em 0 2em 1em;
  }
 
-/*mobile layout of card array stacks cards vertically, elements inside cards stack vertically. At 700px, image aligns left with text blurb in same row*/
+/*mobile layout of card array stacks cards vertically, elements inside cards displaying as block. in landscape orientation, the card takes display:flex and the image and text display horizontally*/
 @media only screen and (min-width:700px) {
-        }
     div.card{
          display:flex;
      }
-     div.card img{
+    div.card img{
          flex-basis:20%;
          padding:1em;
+         width:90%;
      }
-     div.blurb{
+    div.blurb{
         flex-basis:78%;
     }
-    div.card img{
-        width:90%;
-    }
- }
+   }
  
  /*layout changes to tiled rows of 3 cards at 900 px wide browser window*/
 @media only screen and (min-width:900px) {
@@ -176,7 +170,6 @@ div.card{
         grid-column:span 3;
         grid-gap:15px 40px;
     }
-
      .card div.blurb{
         display:block;
         width:90%;
