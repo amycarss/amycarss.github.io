@@ -76,8 +76,8 @@ nav li:first-child{
 nav li:last-child{
     border:none;
 }
-/*switches to horizontal cards for phone oriented horizontal or tablet in portrait mode*/
-@media only screen and (orientation:landscape) and (min-width:650px) {
+/*switches to horizontal nav on screens 650px and wider*/
+@media only screen and (min-width:650px) {
     nav li{
     display:inline-block;
     border:none
@@ -91,7 +91,8 @@ nav li:first-child{
     nav ul{
     display:flex;
     flex-direction:row;
-    justify-content:space-around;
+    justify-content:space-between;
+    align-content:center
     }
 }
 header nav li a:hover, footer a:hover{
