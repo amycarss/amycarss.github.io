@@ -1,119 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Canvas Example</title>
-	<style type="text/css">
-		canvas{
-			border: 1px solid black;
-		}
-	</style>
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
 </head>
-<body>
-	<h1>Canvas Example</h1>
-	<canvas id="canvas" width="500" height="500">
-  An alternative text describing what your canvas displays. 
-</canvas>
-
+<body onload="startGame()">
 <script>
-	//Rectangles
-	var canvas = document.querySelector('canvas');
-	var ctx = canvas.getContext('2d');
-	ctx.fillStyle = 'green';
-	ctx.fillRect(200, 200, 100, 100);
-	// ctx.strokeRect(225,225,50,50);
-	ctx.fillStyle = 'red';
 
-	ctx.arc(250,250,25,0,2*Math.PI);
-	ctx.fill();
-	ctx.clearRect(250,250,10,10);
+var myGamePiece;
 
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
 
-	//Paths
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 500;
+        this.canvas.style.cursor = "none"; //hide the original cursor
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('mousemove', function (e) {
+            myGameArea.x = e.pageX;
+            myGameArea.y = e.pageY;
+        })
+        window.addEventListener('keydown', function (e) {
+            if (myGameArea.keys && myGameArea.keys[66]) {myGamePiece.color="blue"; }//game piece is black
+            //if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
+            //if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
+            //if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
+        })
+    }, 
+    clear : function(){
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);//copy and put this line of code after the spacebar event listener when that is added
+    }
+}
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = this.color;//adding this. turned paintbrush to black
+        ctx.moveTo(this.x, this.y);
+        ctx.arc(this.x, this.y, this.width, 0, Math.PI*2, false);
+        ctx.fill();
+    }
+}
 
-	// https://www.html5canvastutorials.com/tutorials/html5-canvas-arcs/
-
-	// arc(x, y, radius, startAngle, endAngle, anticlockwise)
-	// closePath() connects the first point with the last point
-	ctx.beginPath();					 //quit old drawing, start new one
-	ctx.arc(75,75,50,0,Math.PI*2,true);  // Outer circle
-
-	// ctx.moveTo(110,75);					 
-	// ctx.arc(75,75,35,0,Math.PI,false);   // Mouth
-	ctx.moveTo(55,100);					 
-	ctx.arc(75,100,20,Math.PI*1,0,false);   // Mouth
-
-
-	ctx.moveTo(65,65);
-	ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
-
-	ctx.moveTo(95,65);
-	ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
-	ctx.stroke();
-
-	//Lines
-	// Filled triangle
-	ctx.beginPath();
-	ctx.moveTo(425,345);
-	ctx.lineTo(425,425);
-	ctx.lineTo(345,345)
-	ctx.fillStyle = 'blue';
-	ctx.fill();
-
-	// Stroked triangle
-	ctx.beginPath();
-	ctx.moveTo(345,345);
-	ctx.lineTo(345,425);
-	ctx.lineTo(425,425);
-	ctx.closePath();
-	ctx.stroke();
-
-
-	//Text
-	ctx.fillStyle = '#00F';
-	ctx.font = 'Italic 30px Sans-Serif';
-
-	ctx.strokeText('Amy', 50, 400);
-
-	ctx.font = 'Bold 30px Helvetica';
-	ctx.fillText('Different Font!', 250, 50);
-
-
-	function myFunction(){
-    var x = document.getElementById("myFile");
-    var txt = "";
-    if ('files' in x) {
-        if (x.files.length == 0) {
-            txt = "Select a file";
-        } else {
-        	var img = new Image();
-            img.src = "images/nick.png" + x.files[0].name;
-			img.onload = function(){
-				ctx.drawImage(img, 25, 300);
-				// ctx.drawImage(img, img.width / 4, img.height / 4, img.width / 2, img.height / 2, 0, 0, canvas.width, canvas.height);
-				ctx.fillStyle = '#00F';
-			ctx.font = 'Italic 30px Sans-Serif';
-
-			ctx.strokeText('Amy', 50, 400);
-
-      		}
-      	}
-      } 
-    else {
-        if (x.value == "") {
-            txt += "Select a file.";
-        } else {
-            txt += "The files property is not supported by your browser!";
-            txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
-        }
+function updateGameArea() {
+   //myGameArea.clear();
+    if (myGameArea.x && myGameArea.y) {
+        myGamePiece.x = myGameArea.x;
+        myGamePiece.y = myGameArea.y;        
     }
     
+    myGamePiece.update();
 }
 </script>
-
-	<br><input type="file" id="myFile" size="50" onchange="myFunction()"><br>
-
+<p>Move the cursor inside the canvas to move the red square.</p>
 </body>
 </html>
