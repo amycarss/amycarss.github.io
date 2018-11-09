@@ -41,9 +41,6 @@ var myGameArea = {
             myGameArea.key = e.keyCode;
             console.log("keypress");
         })
-        window.addEventListener('keyup', function (e) {
-            myGameArea.key = false;
-        })
     }, 
     clear : function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -66,7 +63,7 @@ function component(width, height, color, x, y) {
     }
     
 }
-
+console.log("update game area")
 function updateGameArea() {
    //myGameArea.clear(); removing allows the paintbrush to leave a trail
     if (myGameArea.x && myGameArea.y) {
