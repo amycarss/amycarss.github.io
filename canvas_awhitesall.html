@@ -15,7 +15,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(10, 10, "red", 10, 120);
     myGameArea.start();
 }
 
@@ -52,7 +52,7 @@ function component(width, height, color, x, y) {
     this.y = y;    
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = this.color;//adding this. turned paintbrush to black
+        ctx.fillStyle = color;//adding this. turned paintbrush to black
         ctx.moveTo(this.x, this.y);
         ctx.arc(this.x, this.y, this.width, 0, Math.PI*2, false);
         ctx.fill();
