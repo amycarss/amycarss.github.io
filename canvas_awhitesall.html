@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta credit="code adapted from https://www.w3schools.com/graphics/game_controllers.asp"/>
 <style>
 canvas {
     border:1px solid #d3d3d3;
@@ -28,57 +29,66 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
+        
         //makes the mouse the paintbrush
         window.addEventListener('mousemove', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
         })
-        //keyboard commands https://www.w3schools.com/js/js_htmldom_eventlistener.asp, https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
+        //sets event listeners for keypress and key release
+        
         window.addEventListener('keydown', function (e) {
-            myGameArea.key = e.keycode;
+            myGameArea.key = e.keyCode;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.key = false;
         })
     }, 
     clear : function(){
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);//copy and put this line of code after the spacebar event listener when that is added
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
-    this.speedX = 0;
-    this.speedY = 0;    
     this.x = x;
-    this.y = y;    
+    this.y = y; 
+    this.r = 10;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = color;//adding this. turned paintbrush to black
+        ctx.fillStyle = color;
         ctx.moveTo(this.x, this.y);
-        ctx.arc(this.x, this.y, this.width, 0, Math.PI*2, false);//makes component a circle
+        ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);//makes component a circle
         ctx.fill();
     }
 }
 
 function updateGameArea() {
-   //myGameArea.clear();
+   //myGameArea.clear(); removing allows the paintbrush to leave a trail
     if (myGameArea.x && myGameArea.y) {
         myGamePiece.x = myGameArea.x;
-        myGamePiece.y = myGameArea.y;        
+        myGamePiece.y = myGameArea.y;       
+    if (myGameArea.keys && myGameArea.keys ==66) {myGamePiece.color="blue"; } 
+    if (myGameArea.key && myGameArea.key == 82) {myGamePiece.color="red"; }
+    if (myGameArea.key && myGameArea.key == 71) {myGamePiece.color="green"; }
+    if (myGameArea.key && myGameArea.key == 89) {myGamePiece.color="yellow"; }
+    if (myGameArea.key && myGameArea.key == 32) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
+    if (myGameArea.key && myGameArea.key == 38) {this.r = this.r += 3;}
+    if (myGameArea.key && myGameArea.key == 40) {this.r = this.r -= 3;}
     }
-    console.log("wtf");
-    if (myGameArea.key && myGameArea.key == 66) {myGamePiece.color="blue"; }
-    
+    //myGameArea.context.beginPath()    
     myGamePiece.update();
 }
 </script>
 <p>Move the cursor inside the canvas to "paint".
     <ul>
-        <li>To change the color to blue, press b.</li>
-        <li>To change the color to red, press r.</li>
-        <li>To change the color to green, press g.</li>
-        <li>To change the color to yellow, press y.</li>
-        <li>To make the paintbrush larger, press the up arrow.</li>
-        <li>To make the paintbrush smaller, press the down arrow.</li>
-        <li>To clear the canvas, press the space bar</li>
+        <li>To change the color to blue, press b (and imagine the color changing to blue).</li>
+        <li>To change the color to red, press r. (Hey look! it's red!)</li>
+        <li>To change the color to green, press g (and imagine the color changing to green).</li>
+        <li>To change the color to yellow, press y (and imagine the color changing to yellow).</li>
+        <li>To make the paintbrush larger, press the up arrow (and imagine the paintbrush being larger. Close your eyes if that helps.).</li>
+        <li>To make the paintbrush smaller, press the down arrow (and imagine the paintbrush being smaller).</li>
+        <li>To clear the canvas, press the space bar(or better yet, refresh the page)</li>
     </ul>
 </p>
 </body>
