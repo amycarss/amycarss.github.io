@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta credit="code adapted from https://www.w3schools.com/graphics/game_controllers.asp"/>
 <style>
 canvas {
     border:1px solid #d3d3d3;
     background-color: #f1f1f1;
 }
 </style>
+<!--this code is adapted from https://www.w3schools.com/graphics/game_controllers.asp. Credit for help with the color change goes to classmates Kelly O'Sullivan and Adrienne Royce and to my colleague Josh Walker-->
 </head>
 <body onload="startGame()">
 <script>
@@ -16,7 +16,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(10, 10, "red", 10, 120);
+    myGamePiece = new component(20, 20, "red", 10, 120);
     myGameArea.start();
 }
 
@@ -39,6 +39,7 @@ var myGameArea = {
         
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode;
+            console.log("keypress")
         })
         window.addEventListener('keyup', function (e) {
             myGameArea.key = false;
@@ -53,42 +54,44 @@ function component(width, height, color, x, y) {
     this.height = height;
     this.x = x;
     this.y = y; 
-    this.r = 10;
+    this.r = 20;
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = color;
+        ctx.fillStyle =color;
         ctx.moveTo(this.x, this.y);
+        ctx.beginPath();
         ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);//makes component a circle
         ctx.fill();
     }
+    
 }
 
 function updateGameArea() {
    //myGameArea.clear(); removing allows the paintbrush to leave a trail
     if (myGameArea.x && myGameArea.y) {
         myGamePiece.x = myGameArea.x;
-        myGamePiece.y = myGameArea.y;       
-    if (myGameArea.keys && myGameArea.keys ==66) {myGamePiece.color="blue"; } 
-    if (myGameArea.key && myGameArea.key == 82) {myGamePiece.color="red"; }
-    if (myGameArea.key && myGameArea.key == 71) {myGamePiece.color="green"; }
-    if (myGameArea.key && myGameArea.key == 89) {myGamePiece.color="yellow"; }
-    if (myGameArea.key && myGameArea.key == 32) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
+        myGamePiece.y = myGameArea.y;      
+    if (myGameArea.key && myGameArea.key ==66)  {ctx.fillStyle="blue"; ctx.fill(); } 
+    if (myGameArea.key && myGameArea.key == 82) {ctx.fillStyle="red"; ctx.fill();}
+    if (myGameArea.key && myGameArea.key == 71) {ctx.fillStyle="green"; ctx.fill();}
+    if (myGameArea.key && myGameArea.key == 89) {ctx.fillStyle="yellow"; ctx.fill();}
+    if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
     if (myGameArea.key && myGameArea.key == 38) {this.r = this.r += 3;}
     if (myGameArea.key && myGameArea.key == 40) {this.r = this.r -= 3;}
     }
-    //myGameArea.context.beginPath()    
-    myGamePiece.update();
+   
+   myGamePiece.update();
 }
 </script>
 <p>Move the cursor inside the canvas to "paint".
     <ul>
-        <li>To change the color to blue, press b (and imagine the color changing to blue).</li>
-        <li>To change the color to red, press r. (Hey look! it's red!)</li>
-        <li>To change the color to green, press g (and imagine the color changing to green).</li>
-        <li>To change the color to yellow, press y (and imagine the color changing to yellow).</li>
-        <li>To make the paintbrush larger, press the up arrow (and imagine the paintbrush being larger. Close your eyes if that helps.).</li>
+        <li>To change the color to blue, press b.</li>
+        <li>To change the color to red, press r.</li>
+        <li>To change the color to green, press g.</li>
+        <li>To change the color to yellow, press y.</li>
+        <li>To make the paintbrush larger, press the up arrow and imagine the paintbrush being larger. (Close your eyes if that helps.).</li>
         <li>To make the paintbrush smaller, press the down arrow (and imagine the paintbrush being smaller).</li>
-        <li>To clear the canvas, press the space bar(or better yet, refresh the page)</li>
+        <li>To clear the canvas, press the space bar (or better yet, refresh the page)</li>
     </ul>
 </p>
 </body>
