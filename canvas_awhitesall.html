@@ -33,13 +33,13 @@ var myGameArea = {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
         })
-        //keyboard commands
+        //keyboard commands https://www.w3schools.com/js/js_htmldom_eventlistener.asp
         window.addEventListener('keydown', function (e) {
             if (myGameArea.keys && myGameArea.keys[66]) {myGamePiece.color="blue"; }
-            //if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
-            //if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
-            //if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
-            //if (myGameArea.keys && myGameArea.keys[32]) {myGameArea.clear();}
+            if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
+            if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
+            if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
+            if (myGameArea.keys && myGameArea.keys[32]) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
             // if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.width}?
             //if (myGameArea.keys && myGameArea.keys[40]) subtract 2px from x and y
         })
@@ -79,10 +79,10 @@ function updateGameArea() {
         <li>To change the color to blue, press b.</li>
         <li>To change the color to red, press r.</li>
         <li>To change the color to green, press g.</li>
-        <li>To change the coleor to yellow, press y.</li>
+        <li>To change the color to yellow, press y.</li>
         <li>To make the paintbrush larger, press the up arrow.</li>
         <li>To make the paintbrush smaller, press the down arrow.</li>
-        <li>To clear the canvas, press thespace bar</li>
+        <li>To clear the canvas, press the space bar</li>
     </ul>
 </p>
 </body>
