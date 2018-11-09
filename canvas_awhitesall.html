@@ -36,15 +36,7 @@ var myGameArea = {
         //keyboard commands https://www.w3schools.com/js/js_htmldom_eventlistener.asp, https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Creating_and_triggering_events
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keycode;
-            })
-       
-            if (myGameArea.key && myGameArea.key == 66) {myGamePiece.color="blue"; }
-            //if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
-            //if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
-           //if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
-            //if (myGameArea.keys && myGameArea.keys[32]) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
-            // if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.width}?
-            //if (myGameArea.keys && myGameArea.keys[40]) subtract 2px from x and y
+        })
     }, 
     clear : function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);//copy and put this line of code after the spacebar event listener when that is added
@@ -72,7 +64,8 @@ function updateGameArea() {
         myGamePiece.x = myGameArea.x;
         myGamePiece.y = myGameArea.y;        
     }
-    if (myGameArea.key && myGameArea.key[66]) {myGamePiece.color="blue"; }
+    console.log("wtf");
+    if (myGameArea.key && myGameArea.key == 66) {myGamePiece.color="blue"; }
     
     myGamePiece.update();
 }
