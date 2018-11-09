@@ -15,7 +15,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGamePiece = new component(10, 10, "red", 10, 120);
     myGameArea.start();
 }
 
@@ -28,15 +28,20 @@ var myGameArea = {
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.interval = setInterval(updateGameArea, 20);
+        //makes the mouse the paintbrush
         window.addEventListener('mousemove', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
         })
+        //keyboard commands https://www.w3schools.com/js/js_htmldom_eventlistener.asp
         window.addEventListener('keydown', function (e) {
-            if (myGameArea.keys && myGameArea.keys[66]) {myGamePiece.color="blue"; }//game piece is black
-            //if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
-            //if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
-            //if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
+            if (myGameArea.keys && myGameArea.keys[66]) {myGamePiece.color="blue"; }
+            if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
+            if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
+            if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
+            if (myGameArea.keys && myGameArea.keys[32]) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
+            // if (myGameArea.keys && myGameArea.keys[38]) {myGamePiece.width}?
+            //if (myGameArea.keys && myGameArea.keys[40]) subtract 2px from x and y
         })
     }, 
     clear : function(){
@@ -52,9 +57,9 @@ function component(width, height, color, x, y) {
     this.y = y;    
     this.update = function() {
         ctx = myGameArea.context;
-        ctx.fillStyle = this.color;//adding this. turned paintbrush to black
+        ctx.fillStyle = color;//adding this. turned paintbrush to black
         ctx.moveTo(this.x, this.y);
-        ctx.arc(this.x, this.y, this.width, 0, Math.PI*2, false);
+        ctx.arc(this.x, this.y, this.width, 0, Math.PI*2, false);//makes component a circle
         ctx.fill();
     }
 }
@@ -69,6 +74,16 @@ function updateGameArea() {
     myGamePiece.update();
 }
 </script>
-<p>Move the cursor inside the canvas to move the red square.</p>
+<p>Move the cursor inside the canvas to "paint".
+    <ul>
+        <li>To change the color to blue, press b.</li>
+        <li>To change the color to red, press r.</li>
+        <li>To change the color to green, press g.</li>
+        <li>To change the color to yellow, press y.</li>
+        <li>To make the paintbrush larger, press the up arrow.</li>
+        <li>To make the paintbrush smaller, press the down arrow.</li>
+        <li>To clear the canvas, press the space bar</li>
+    </ul>
+</p>
 </body>
 </html>
