@@ -37,10 +37,8 @@ var myGameArea = {
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keycode;
             })
-        window.addEventListener('keyup', function (e) {
-            myGameArea.key = false;
-        })
-            if (myGameArea.key && myGameArea.key[66]) {myGamePiece.color="blue"; }
+       
+            if (myGameArea.key && myGameArea.key == 66) {myGamePiece.color="blue"; }
             //if (myGameArea.keys && myGameArea.keys[82]) {myGamePiece.color="red"; }
             //if (myGameArea.keys && myGameArea.keys[71]) {myGamePiece.color="green"; }
            //if (myGameArea.keys && myGameArea.keys[89]) {myGamePiece.color="yellow"; }
