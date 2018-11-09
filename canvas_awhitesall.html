@@ -15,13 +15,13 @@ canvas {
 
 var myGamePiece;
 
-function startGame() { 
+function startGame() {
     myGamePiece = new component(20, 20, "red", 10, 120);
     myGameArea.start();
 }
 
 var myGameArea = {
-    canvas : document.createElement("canvas"),b
+    canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 800;
         this.canvas.height = 500;
@@ -54,7 +54,7 @@ function component(width, height, color, x, y) {
     this.height = height;
     this.x = x;
     this.y = y; 
-    this.r = 10;
+    this.r = 20;
     this.update = function() {
         ctx = myGameArea.context;
         ctx.fillStyle =color;
@@ -75,7 +75,7 @@ function updateGameArea() {
     if (myGameArea.key && myGameArea.key == 82) {ctx.fillStyle="red"; ctx.fill();}
     if (myGameArea.key && myGameArea.key == 71) {ctx.fillStyle="green"; ctx.fill();}
     if (myGameArea.key && myGameArea.key == 89) {ctx.fillStyle="yellow"; ctx.fill();}
-    if (myGameArea.key && myGameArea.key == 32) {this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
+    if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
     if (myGameArea.key && myGameArea.key == 38) {this.r = this.r += 3;}
     if (myGameArea.key && myGameArea.key == 40) {this.r = this.r -= 3;}
     }
