@@ -16,7 +16,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(20, 20, "red", 10, 120);
+    myGamePiece = new component(20, 20, "red", 10, 20);
     myGameArea.start();
 }
 
@@ -28,27 +28,25 @@ var myGameArea = {
         this.canvas.style.cursor = "none"; //hide the original cursor
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.interval = setInterval(updateGameArea, 20);
+        this.interval = setInterval(updateGameArea, 5);
         
         //makes the mouse the paintbrush
         window.addEventListener('mousemove', function (e) {
             myGameArea.x = e.pageX;
             myGameArea.y = e.pageY;
         })
+      
         //sets event listeners for keypress and key release
-        
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode;
-            console.log("keypress")
-        })
-        window.addEventListener('keyup', function (e) {
-            myGameArea.key = false;
+            
         })
     }, 
     clear : function(){
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 }
+
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
@@ -63,23 +61,20 @@ function component(width, height, color, x, y) {
         ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);//makes component a circle
         ctx.fill();
     }
-    
 }
-
 function updateGameArea() {
    //myGameArea.clear(); removing allows the paintbrush to leave a trail
     if (myGameArea.x && myGameArea.y) {
         myGamePiece.x = myGameArea.x;
         myGamePiece.y = myGameArea.y;      
-    if (myGameArea.key && myGameArea.key ==66)  {ctx.fillStyle="blue"; ctx.fill(); } 
+    if (myGameArea.key && myGameArea.key ==66)  {ctx.fillStyle="blue"; ctx.fill(); } console.log(myGameArea.key)
     if (myGameArea.key && myGameArea.key == 82) {ctx.fillStyle="red"; ctx.fill();}
     if (myGameArea.key && myGameArea.key == 71) {ctx.fillStyle="green"; ctx.fill();}
     if (myGameArea.key && myGameArea.key == 89) {ctx.fillStyle="yellow"; ctx.fill();}
-    if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, this.canvas.width, this.canvas.height);}
-    if (myGameArea.key && myGameArea.key == 38) {this.r = this.r += 3;}
+    if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);}
+    if (myGameArea.key && myGameArea.key == 38) {this.r = this.r += 3;} 
     if (myGameArea.key && myGameArea.key == 40) {this.r = this.r -= 3;}
     }
-   
    myGamePiece.update();
 }
 </script>
@@ -91,7 +86,7 @@ function updateGameArea() {
         <li>To change the color to yellow, press y.</li>
         <li>To make the paintbrush larger, press the up arrow and imagine the paintbrush being larger. (Close your eyes if that helps.).</li>
         <li>To make the paintbrush smaller, press the down arrow (and imagine the paintbrush being smaller).</li>
-        <li>To clear the canvas, press the space bar (or better yet, refresh the page)</li>
+        <li>To clear the canvas, press the space bar</li>
     </ul>
 </p>
 </body>
