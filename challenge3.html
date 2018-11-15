@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Challenge 3</title>
+  
+ <script>
+
+    // Write a function that ensures at least one but ONLY one radio button is selected.  Make sure the form action is not performed if either field is blank.
+    $("form").submit(function( event ) {
+        if ( $('input[name=fruit]:checked').val()){
+          return;
+      }
+        else
+        alert("Pick a berry or we're stopping right here")
+        event.preventDefault();//stops the default action from happening so form doesn't get submitted
+    });
+    </script> 
+</head>
+<body>
+  <h1> Challenge 3</h1>
+	 <form action="challenge4.html" 
+        onsubmit= "return checkForm()">
+      <fieldset>
+        <legend>Radio buttons and Check Boxes</legend>
+        <div>
+          What's your favorite berry?: 
+          <label>
+            <input name="fruit" type="radio" value = "s" id="opt-straw"> Strawberries
+          </label>
+          <label>
+            <input name="fruit" type="radio" value = "b" id="opt-blue"> Blueberries
+        </label>
+      </div>
+  </fieldset>
+  <input type="submit" value="Pick your fruit!">
+</form>
+<script>
+/* $("#opt-straw").click()
+grab form tag to create jquery object. give it a submit listener so when user submits form, call the function 
+function takes parameter of event if statement says find input field with name of fave fruit, when its checked get the value,
+add a return true to it...event
+else, trigger an alert event.preventDefault() keeps the page from submitting if no radio button is checked
+
+if ( $('input(name="favfruit"]:checked').val()){
+  with radio buttons, .val returns the value of the text, not whether the button is checked or not.
+} */
+</script>
+</body>
+</html>
