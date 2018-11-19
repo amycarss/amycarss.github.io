@@ -216,8 +216,8 @@ html.lb-disable-scrolling {
 	width: 95%;
 	border: 2px solid black;
 	margin:0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr;
 	grid-column-gap: 10px;
 }
 
@@ -226,7 +226,7 @@ html.lb-disable-scrolling {
 }
 
 .item{
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 }
 /*murri basebones draggable grid*/
 .grid {
@@ -239,7 +239,7 @@ html.lb-disable-scrolling {
   /*height: 100px;*/
   margin: 5px;
   z-index: 1;
-  background: #000;
+  /*background: #000;*/
   color: #fff;
 }
 .item.muuri-item-dragging {
