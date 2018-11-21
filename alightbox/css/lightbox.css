@@ -256,3 +256,10 @@ html.lb-disable-scrolling {
   width: 100%;
   height: 100%;
 }
+h1{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight:700;
+  font-size:30px;
+  padding:2em 37%;
+  margin:0 auto;
+}
