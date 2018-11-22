@@ -17,7 +17,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(20, 20, "red", 10, 20, 20);
+    myGamePiece = new component(10, 10, "red", 10, 20, 10);
     myGameArea.start();
 }
 
@@ -90,14 +90,16 @@ function updateGameArea() {
     myGamePiece.update();  
 }
 </script>
-<p>Move the cursor inside the canvas to "paint".
+<h1>
+    Your Canvas
+</h1><p>Move the cursor inside the canvas to "paint".
     <ul>
         <li>To change the color to blue, press b.</li>
         <li>To change the color to red, press r.</li>
         <li>To change the color to green, press g.</li>
         <li>To change the color to yellow, press y.</li>
-        <li>To make the paintbrush larger, press the up arrow and imagine the paintbrush being larger. <br/>(Close your eyes if that helps.)</li>
-        <li>To make the paintbrush smaller, press the down arrow and imagine the paintbrush being smaller. <br/>(Obviously I'll be taking advantage of the regrade opportunity:-)</li>
+        <li>To make the paintbrush larger, press the up arrow. </li>
+        <li>To make the paintbrush smaller, press the down arrow.</li>
         <li>To clear the canvas, press the space bar</li>
     </ul>
 </p>
