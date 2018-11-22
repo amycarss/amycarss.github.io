@@ -2,6 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>
+    Canvas project
+</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
@@ -17,7 +20,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(10, 10, "red", 10, 20, 10);
+    myGamePiece = new component(20, 20, "red", 10, 20, 10);
     myGameArea.start();
 }
 
@@ -92,7 +95,7 @@ function updateGameArea() {
 </script>
 <h1>
     Your Canvas
-</h1><p>Move the cursor inside the canvas to "paint".
+</h1>Move the cursor inside the canvas to "paint".</h1>
     <ul>
         <li>To change the color to blue, press b.</li>
         <li>To change the color to red, press r.</li>
