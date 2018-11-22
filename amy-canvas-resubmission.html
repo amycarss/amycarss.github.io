@@ -20,7 +20,7 @@ canvas {
 var myGamePiece;
 
 function startGame() {
-    myGamePiece = new component(20, 20, "red", 10, 20, 10);
+    myGamePiece = new component(10, 20, 5, 0, 2*Math.PI, "blue");
     myGameArea.start();
 }
 
@@ -54,10 +54,11 @@ var myGameArea = {
     }
 }
 
-function component(width, height, color, x, y, radius) { 
-    this.width = width;
-    this.height = height;
+function component(x, y, radius, startArc, endArc, color) { 
+    //this.width = width;
+    //this.height = height;
     this.radius = radius; 
+    this.color = color;
     this.x = x;
     this.y = y; 
     this.update = function() {
@@ -75,8 +76,8 @@ function updateGameArea() {
         myGamePiece.x = myGameArea.x;
         myGamePiece.y = myGameArea.y;      
 
-    if (myGameArea.key && myGameArea.key ==66)  {myGamePiece.color ="blue";}
-    if (myGameArea.key && myGameArea.key == 82) {myGamePiece.color="red";}
+    if (myGameArea.key && myGameArea.key ==66)  {myGamePiece.color = "blue";}
+    if (myGameArea.key && myGameArea.key == 82) {myGamePiece.color= "red";}
     if (myGameArea.key && myGameArea.key == 71) {myGamePiece.color="green";}
     if (myGameArea.key && myGameArea.key == 89) {myGamePiece.color="yellow";}
     if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);}
