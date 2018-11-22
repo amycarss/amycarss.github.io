@@ -58,13 +58,6 @@ function component(width, height, color, x, y, radius) {
     this.width = width;
     this.height = height;
     this.radius = radius; 
-    // COLLEEN - I introduced an error below.  Suddenly your
-    // pen starts off as black.  That is because fillStyle
-    // needs be *initialized* to color here (and then 
-    //updated later below).
-   console.log(width);
-   console.log(color);
-   console.log(radius);
     this.x = x;
     this.y = y; 
     this.update = function() {
@@ -81,21 +74,22 @@ function updateGameArea() {
     if (myGameArea.x && myGameArea.y) {
         myGamePiece.x = myGameArea.x;
         myGamePiece.y = myGameArea.y;      
- 
-    if (myGameArea.key && myGameArea.key ==66)  {myGamePiece.color = "blue";}
+
+    if (myGameArea.key && myGameArea.key ==66)  {myGamePiece.color ="blue";}
     if (myGameArea.key && myGameArea.key == 82) {myGamePiece.color="red";}
     if (myGameArea.key && myGameArea.key == 71) {myGamePiece.color="green";}
     if (myGameArea.key && myGameArea.key == 89) {myGamePiece.color="yellow";}
     if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);}
-    if (myGameArea.key && myGameArea.key == 38) {myGamePiece.radius += .25;} 
-    if (myGameArea.key && myGameArea.key == 40) {myGamePiece.radius -= .25;}
+    if (myGameArea.key && myGameArea.key == 38) {myGamePiece.radius += .25;}
+ //this works but keyup doesn't seem to be firing. blob keeps growing!
+    if (myGameArea.key && myGameArea.key == 40) {myGamePiece.radius -= .25;}    
     }
     myGamePiece.update();  
 }
 </script>
 <h1>
     Your Canvas
-</h1>Move the cursor inside the canvas to "paint".</h1>
+</h1><p>Move the cursor inside the canvas to "paint".</p>
     <ul>
         <li>To change the color to blue, press b.</li>
         <li>To change the color to red, press r.</li>
