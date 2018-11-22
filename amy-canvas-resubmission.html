@@ -81,7 +81,7 @@ function updateGameArea() {
     if (myGameArea.key && myGameArea.key == 89) {myGamePiece.color="yellow";}
     if (myGameArea.key && myGameArea.key == 32) {myGameArea.context.clearRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);}
     if (myGameArea.key && myGameArea.key == 38) {myGamePiece.radius += .25;}
- //this works but keyup doesn't seem to be firing. blob keeps growing!
+ //this works locally, but when I upload the page to my site keyup doesn't seem to be firing. blob keeps growing/shrinking!
     if (myGameArea.key && myGameArea.key == 40) {myGamePiece.radius -= .25;}    
     }
     myGamePiece.update();  
