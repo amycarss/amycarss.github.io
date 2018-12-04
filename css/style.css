@@ -45,7 +45,7 @@ footer{
     background:#202020;
     padding:.5em 0 1em .5em;
     color:#ededed;
-    margin: 2em;
+    margin: 2em 0 0 0;
     }
 address{
     font-style:normal;
@@ -128,7 +128,7 @@ a:active, a:hover {
 main.container{
     grid-column:2/5;
     grid-row-start:2;
-    min-width:350px;
+    /*min-width:350px; I think this is unnecessary*/
 }
 /*card array*/
 .card h2, .card h3, .card p{
@@ -179,7 +179,7 @@ main.container{
     .card{
         display:inline-block;
     }
-
+}
 /*icons*/
 i{
     padding-left:.5em;
@@ -190,5 +190,10 @@ i{
     width:100%;
     grid-column:1/6;
     grid-row-start:1;
-    margin-bottom:2em;
+    /*position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    margin-bottom:2em; this would make the hero image drop behind the header*/
+
 }
