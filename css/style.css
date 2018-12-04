@@ -31,13 +31,13 @@ p, ul, li{
     line-height:1.65em;
     padding:.5em;
 }
-ul{
+/*ul{
     margin:0 1em;
-}
+}*/
 /*header and footer styles*/
 header{
-    background:#00274C;
-    padding:2em 0 .5em;
+    background-image: linear-gradient(#00274c, rgba(0,0,0,.85));
+    padding:2em 0 0;
     width:100%;
 }
 footer{
@@ -45,6 +45,7 @@ footer{
     background:#202020;
     padding:.5em 0 1em .5em;
     color:#ededed;
+    margin: 2em;
     }
 address{
     font-style:normal;
@@ -56,7 +57,7 @@ address{
 }
 
 /*sets desktop page columns*/
-.main{
+.page{
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
     grid-template-rows: auto;
@@ -69,7 +70,6 @@ nav, nav ul{
     min-width:350px;
 }
 nav li, nav li a{
-    width:100%;
     padding:1em;
 }
 
@@ -87,8 +87,7 @@ nav li a{
     text-decoration:none;
 }
 nav li a:hover{
-    background-color:#f8f8f8;
-    color:#00274C;
+    background-color:#465d85;
 }
 /*switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
 @media only screen and (min-width:650px) {
@@ -102,13 +101,13 @@ nav li a:hover{
     nav ul{
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
-    align-content:center
+    justify-content:space-around;
+    align-content:center;
+    /*background-color:#465d85;*/
     }
-    header nav li a:hover, footer a:hover{
+    header nav li a:hover, footer a:hover, .active{
         color:#ffcb05;
-        background-color:#00274C;
-    }
+        }
 }
 
 /*link states*/
@@ -126,7 +125,7 @@ a:active, a:hover {
 	color:#702082;
 }
 /*positions content in the middle of the page*/
-div.container{
+main.container{
     grid-column:2/5;
     grid-row-start:2;
     min-width:350px;
@@ -178,10 +177,8 @@ div.container{
         padding:2em;
     }
     .card{
-        display:inline-block;\
+        display:inline-block;
     }
-    .card
-}
 
 /*icons*/
 i{
