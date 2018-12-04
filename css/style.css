@@ -36,7 +36,6 @@ p, ul, li{
 }*/
 /*header and footer styles*/
 header{
-    /*background:#00274c; canham pool blue #587abc, michigan blue #00274c  rgba(0, 39, 76, .6)*/
     background-image: linear-gradient(#00274c, rgba(0,0,0,.85));
     padding:2em 0 0;
     width:100%;
@@ -71,7 +70,6 @@ nav, nav ul{
     min-width:350px;
 }
 nav li, nav li a{
-    width:100%;
     padding:1em;
 }
 
@@ -103,7 +101,7 @@ nav li a:hover{
     nav ul{
     display:flex;
     flex-direction:row;
-    justify-content:space-between;
+    justify-content:space-around;
     align-content:center;
     /*background-color:#465d85;*/
     }
