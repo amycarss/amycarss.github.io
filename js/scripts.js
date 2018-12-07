@@ -28,7 +28,7 @@
           if (target.length) {
             // Only prevent default if animation is actually gonna happen
             event.preventDefault();
-            console.log("got this far")
+       
             $('html, body').animate({
               scrollTop: target.offset().top
             }, 1000, function() {
@@ -47,3 +47,12 @@
         }
       });
       //end csstricks code
+  
+      function myFunction() {
+        var x = document.getElementById("nav");
+        if (x.className === "nav") {
+            x.className += " responsive";
+        } else {
+            x.className = "nav";
+        }
+    }

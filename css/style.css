@@ -65,49 +65,74 @@ address{
 }
 /*main navigation*/
 /*mobile view*/
-nav, nav ul{
+nav{
     width: 100%;
     min-width:350px;
 }
-nav li, nav li a{
+nav, nav a{
     padding:1em;
 }
 
-nav li{
+nav{
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
 }
-nav li:first-child{
+nav:first-child{
     border-top: 0.25px solid darkgrey;
 }
-nav li:last-child{
+nav:last-child{
     border:none;
 }
-nav li a{
+nav a{
     text-decoration:none;
+    color:#fefefe;
 }
-nav li a:hover, nav li a:focus{
+nav a:hover, nav a:focus {
     background-color:#fefefe;
+    color:#ffcb05;
 }
+/*experimental*/
+.nav a:not(:first-child) {display: none;}
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+.nav.responsive {position: relative;}
+.nav.responsive a.icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.nav.responsive a {
+  float: none;
+  display: block;
+  text-align: left;
+}
+/*end experimental*/
+
 /*switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
 @media only screen and (min-width:650px) {
-    nav li{
+    .nav a{
     display:inline-block;
     border:none;
 }
-    nav li:first-child{
+    nav a:first-child{
     border-top:none;
 }
-    nav ul{
+    .nav a:not(:first-child) {display: inline-block;}
+    .nav{
     display:flex;
     flex-direction:row;
     justify-content:space-around;
     align-content:center;
     /*background-color:#465d85;*/
     }
-    header nav li a:hover, header nav li a:focus, footer a:hover, footer a:focus, .active{
+    header nav a:hover, header nav a:focus, footer a:hover, footer a:focus, .active, .mobileicon a:hover, .mobileicon a:focus{
         color:#ffcb05;
         }
+    a.mobileicon{
+         display: none;
+    }     
 }
 
 /*link states*/
@@ -128,8 +153,10 @@ a:active, a:hover, a:focus {
 main.container{
     grid-column:2/5;
     grid-row-start:2;
-    /*min-width:350px; I think this is unnecessary*/
 }
+a.mobileicon:hover, a.mobileicon:focus{
+    color:#ffcb05;
+    }
 /*card array*/
 .card h2, .card h3, .card p{
     width:90%;
@@ -185,6 +212,10 @@ i{
     padding-left:.5em;
     font-size:.75em;
 }
+.mobileicon i{
+    font-size:1.25em;
+line-height:1.65;
+}
 /* hero image*/
 .hero{
     width:100%;
@@ -234,3 +265,8 @@ i{
   #myBtn:hover {
     background-color: #555;
   }
+  .#nav .icon {
+    display: none;
+}
+
+     /*  <i class="fas fa-bars"></i>*/
