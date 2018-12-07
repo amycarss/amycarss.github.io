@@ -12,21 +12,25 @@
    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
    <link rel="stylesheet" href="css/style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
+    <h2 id="skip"><a href="#main">Skip to Main Content</a></h2>
     <header>
-          
-          <nav> <ul>
-            <li><a href="index.html">The New Motor City</a></li>
-            <li><a href="training.html">Training</a></li>
-            <li><a href="testing.html" class="active">Tech &amp; Testing</a></li>
-            <li><a href="social.html">Social Shifts</a></li>
-            </ul>
+            <nav id="nav" class="nav"> <!--https://www.w3schools.com/howto/howto_js_topnav_responsive.asp and https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp -->
+                <a class="mobileicon" href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="index.html">The New Motor City</a>
+                <a href="training.html">Training</a>
+                <a href="testing.html" class="active">Tech &amp; Testing</a>
+                <a href="social.html">Social Shifts</a>
             </nav>
     </header>  
-     <section class="page">
+    <button id="myBtn" title="Go to top"><a href="#nav">Top</a></button>
+    <section class="page">
         <img src="images/lidar-adjustment.jpg" alt="man adjusting lidar unit on top of car" class="hero"/>
-        <main class="container">
+        <main id="main" class="container">
         <div class="intro">
              <h1>Technology &amp; Testing</h1>
             <p>It’s not just about making things; it’s about making things better - or faster, easier, less expensive. That’s what happens when you concentrate talent and creativity around the right resources. </p>
@@ -100,5 +104,6 @@
  <footer>
      <address>Michigan Engineering | 1221 Beal Ave. | Ann Arbor, MI 48109-2102 | engin-info@umich.edu </address>
  </footer>  
+ <script src="js/scripts.js"></script>
 </body>
 </html>
