@@ -12,12 +12,13 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
- </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+</head>
  <body>
     <h2 id="skip"><a href="#main">Skip to Main Content</a></h2> 
     <header>
            
-           <nav> <ul>
+           <nav id="nav"> <ul>
              <li><a href="index.html">The New Motor City</a></li>
              <li><a href="training.html" class="active">Training</a></li>
              <li><a href="testing.html">Tech &amp; Testing</a></li>
@@ -25,6 +26,7 @@
              </ul>
              </nav>
      </header>
+     <button id="myBtn" title="Go to top"><a href="#nav">Top</a></button>
    <section class="page">
         <img src="images/umtri.jpg" alt="man recording data from a car" class="hero"/>
         <main id="main" class="container">
@@ -50,5 +52,6 @@
     <footer>
             <address>Michigan Engineering | 1221 Beal Ave. | Ann Arbor, MI 48109-2102 | engin-info@umich.edu </address>
     </footer>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -220,6 +220,7 @@ i{
     border: none;
     outline: none;
     background-color: #00274c;
+    opacity: 0.95;
     color: white;
     cursor: pointer;
     padding: 15px;
