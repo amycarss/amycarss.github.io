@@ -219,11 +219,15 @@ i{
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: #00274c;
     color: white;
     cursor: pointer;
     padding: 15px;
-    border-radius: 4px;
+    border-radius: 50%;
+  }
+  #myBtn a{
+      color:#fefefe;
+      text-decoration:none;
   }
   
   #myBtn:hover {
