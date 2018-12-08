@@ -31,6 +31,9 @@ p, ul, li{
     line-height:1.65em;
     padding:.5em;
 }
+ul{
+    padding-left:2em;
+}
 /*ul{
     margin:0 1em;
 }*/
