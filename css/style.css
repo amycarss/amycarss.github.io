@@ -87,10 +87,12 @@ nav a{
     text-decoration:none;
     color:#fefefe;
 }
-nav a:hover, nav a:focus {
+nav a:hover, nav a:focus .active{
     background-color:#fefefe;
     color:#ffcb05;
+    background-color:rgba(0,0,0,.50);
 }
+
 /*experimental*/
 .nav a:not(:first-child) {display: none;}
   .nav a.icon {
@@ -115,6 +117,10 @@ nav a:hover, nav a:focus {
     .nav a{
     display:inline-block;
     border:none;
+}
+a.active{
+    border-bottom:1px solid #ffcb05;
+    padding:1em 0;
 }
     nav a:first-child{
     border-top:none;
@@ -221,11 +227,8 @@ line-height:1.65;
     width:100%;
     grid-column:1/6;
     grid-row-start:1;
-    /*position:absolute;
-    top:0;
-    left:0;
-    z-index:-1;
-    margin-bottom:2em; this would make the hero image drop behind the header*/
+    margin-bottom:1em;
+    
 }
 #skip a{
     width:20%;
