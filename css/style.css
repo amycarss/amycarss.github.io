@@ -9,6 +9,9 @@ body{
     width:100%;
     box-sizing:border-box;
 }
+header{background:#00274c;
+
+}
 h1, h2, h3, h4, h5, h6{
     font-family: "Montserrat", Helvetica, sans-serif;
     font-weight:700;
