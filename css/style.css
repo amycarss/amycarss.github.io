@@ -162,7 +162,7 @@ a:active, a:hover, a:focus {
 	color:#702082;
 }
 /*positions content in the middle of the page*/
-main.container{
+.container{
     grid-column:2/5;
     grid-row-start:2;
 }
@@ -289,5 +289,3 @@ line-height:1.65;
     top:.5em;
     left:66px
 }
-
-     /*  <i class="fas fa-bars"></i>*/
