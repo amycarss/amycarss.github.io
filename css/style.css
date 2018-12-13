@@ -31,6 +31,9 @@ p, ul, li{
     line-height:1.65em;
     padding:.5em;
 }
+ul{
+    padding-left:2em;
+}
 /*ul{
     margin:0 1em;
 }*/
@@ -69,8 +72,11 @@ nav{
     width: 100%;
     min-width:350px;
 }
-nav, nav a{
+nav{
     padding:1em;
+}
+nav a{
+    padding:1em .25em;
 }
 
 nav{
@@ -270,6 +276,18 @@ line-height:1.65;
   }
   .#nav .icon {
     display: none;
+}
+.branding img{
+    position:absolute;
+    top:.5em;
+    left:.5em;
+}
+.branding p{
+    color:#ffcb05;
+    line-height:1.2;
+    position:absolute;
+    top:.5em;
+    left:66px
 }
 
      /*  <i class="fas fa-bars"></i>*/
