@@ -138,6 +138,7 @@ a.active{
     a.mobileicon{
          display: none;
     }     
+}
 
     /*link states*/
 a {
@@ -287,5 +288,4 @@ img.hero{
     position:absolute;
     top:.5em;
     left:66px;
-   
 }
