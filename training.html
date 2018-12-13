@@ -15,8 +15,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 </head>
  <body>
-    <h2 id="skip"><a href="#main">Skip to Main Content</a></h2> 
     <header>
+            <h2 id="skip"><a href="#main">Skip to Main Content</a></h2> 
             <div class="branding"><a href="index.html"><img src="images/autologo.png" alt="Autonomous Ann Arbor logo" width="50"/> <p>Autonomous</p><p>Ann Arbor</p> </a></div>
             <nav id="nav" class="nav"> <!--https://www.w3schools.com/howto/howto_js_topnav_responsive.asp and https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp -->
                 <a class="mobileicon icon" href="javascript:void(0);"  aria-label="open mobile menu" onclick="myFunction()">
@@ -28,10 +28,11 @@
                 <a href="social.html">Social Shifts</a>
             </nav>
      </header>
-     <button id="myBtn" title="Go to top"><a href="#nav">Top</a></button>
-   <div class="page">
+    
+   <main class="page">
+        <button id="myBtn" title="Go to top"><a href="#nav">Top</a></button>
         <img src="images/umtri.jpg" alt="man recording data from a car" class="hero"/>
-        <main id="main" class="container">
+        <section id="main" class="container">
         <div class="intro">
         <h1>Training</h1>
         <h2>Next-Gen Engineers</h2>
@@ -49,8 +50,8 @@
             <li><a href="https://cfe.umich.edu/techlab-mcity/">TechLab</a>, which is run by the Center for Entrepreneurship, gives engineering undergraduates a chance to work with autonomous vehicle startups. </li>
             <li><a href="http://isd.engin.umich.edu/professional-programs/connected-and-automated-vehicles/index.htm">Center for Connected and Automated Transportation</a>, a consortium of five Midwestern universities and Washtenaw Community College is developing courses and programs to educate tomorrow’s autonomous vehicle workforce</li>
         </ul>
-    </main><!--container-->
-</div><!--page -->
+    </section><!--container-->
+</main><!--page -->
     <footer>
             <address>Michigan Engineering | 1221 Beal Ave. | Ann Arbor, MI 48109-2102 | engin-info@umich.edu </address>
     </footer>
