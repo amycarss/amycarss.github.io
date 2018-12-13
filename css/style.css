@@ -67,10 +67,11 @@ nav{
     min-width:300px;
 }
 nav{
-    padding:1em 0 0;
-}
+    padding:1.5em 0 0;
+   }
 nav a{
-    padding:1em .25em;
+    padding:0 .5em .25em;
+    margin:.25em;
 }
 
 nav{
