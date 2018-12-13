@@ -277,5 +277,17 @@ line-height:1.65;
   .#nav .icon {
     display: none;
 }
+.branding img{
+    position:absolute;
+    top:.5em;
+    left:.5em;
+}
+.branding p{
+    color:#ffcb05;
+    line-height:1.2;
+    position:absolute;
+    top:.5em;
+    left:66px
+}
 
      /*  <i class="fas fa-bars"></i>*/
