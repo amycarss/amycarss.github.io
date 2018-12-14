@@ -64,10 +64,11 @@ address{
 /*mobile view*/
 nav{
     width: 100%;
-    min-width:300px;
+    min-width:200px;
     padding:1.5em 0 0;
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
+    text-align:right;
    }
 
 nav:first-child{
@@ -79,7 +80,7 @@ nav:last-child{
 nav a{
     text-decoration:none;
     color:#fefefe;
-    padding:0 .5em .25em;
+    padding:1em .5em .25em;
     margin:.25em;
 }
 nav a:hover, nav a:focus .active{
@@ -94,16 +95,21 @@ nav a:hover, nav a:focus .active{
     /*float: right;*/
     display: block;
 }
-.nav.responsive {position: relative;}
+.nav.responsive {
+    position: relative;
+   margin-top:0;
+   padding-top:0;
+
+}
 .nav.responsive a.icon {
-  position: absolute;
-  left: 0;
-  top: 1.5em;
+ /* position: absolute;*/
+  right: 0;
+  top:.5em;
 }
 .nav.responsive a {
   /*float: none;*/
   display: block;
-  text-align: left;
+  text-align: right;
 }
 /*end experimental*/
 
@@ -134,6 +140,13 @@ a.active{
     .nav.responsive a.icon, .nav a.icon{
          display: none;
     }     
+    .branding{
+        width:50px;
+        display:inline;
+        margin:0 auto;
+       
+        margin:0 auto;
+    }
 }
 
     /*link states*/
