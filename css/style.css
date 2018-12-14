@@ -2,7 +2,7 @@
 html{
     scroll-behavior:smooth;
 }
-body{
+body, main{
     background:#f8f8f8;
     font-family: "Merriweather", Georgia, serif;
     font-weight:400;
@@ -197,9 +197,9 @@ a.icon:hover, a.icon:focus{
     .card{
          display:flex;
      }
-    .card .image{
+    /*.card .image{
          padding:1em;
-     }
+     }*/
     .blurb{
         flex-basis:90%;
     }

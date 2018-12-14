@@ -26,7 +26,7 @@ function topFunction() {
         }
     }
   
-  //from W3 Schools, a backup to ensure smooth scrolling on all browsers (https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section1)
+  //from W3 Schools, a backup to\ ensure smooth scrolling on all browsers (https://www.w3schools.com/howto/howto_css_smooth_scroll.asp#section1)
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
