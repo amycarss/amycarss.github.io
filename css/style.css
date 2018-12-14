@@ -65,19 +65,11 @@ address{
 nav{
     width: 100%;
     min-width:300px;
-}
-nav{
     padding:1.5em 0 0;
-   }
-nav a{
-    padding:0 .5em .25em;
-    margin:.25em;
-}
-
-nav{
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
-}
+   }
+
 nav:first-child{
     border-top: 0.25px solid darkgrey;
 }
@@ -87,6 +79,8 @@ nav:last-child{
 nav a{
     text-decoration:none;
     color:#fefefe;
+    padding:0 .5em .25em;
+    margin:.25em;
 }
 nav a:hover, nav a:focus .active{
     background-color:#fefefe;
@@ -104,7 +98,7 @@ nav a:hover, nav a:focus .active{
 .nav.responsive a.icon {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 1.5em;
 }
 .nav.responsive a {
   /*float: none;*/
@@ -118,6 +112,7 @@ nav a:hover, nav a:focus .active{
     .nav a{
     display:inline-block;
     border:none;
+    padding:1em 0;
 }
 a.active{
     border-bottom:1px solid #ffcb05;
@@ -136,7 +131,7 @@ a.active{
     header nav a:hover, header nav a:focus, footer a:hover, footer a:focus, .active, .mobileicon a:hover, .mobileicon a:focus{
         color:#ffcb05;
         }
-    a.mobileicon{
+    .nav.responsive a.icon, .nav a.icon{
          display: none;
     }     
 }
@@ -160,7 +155,8 @@ a:active, a:hover, a:focus {
     grid-column:2/5;
     grid-row-start:2;
 }
-a.mobileicon:hover, a.mobileicon:focus{
+
+a.icon:hover, a.icon:focus{
     color:#ffcb05;
     }
 /*card array*/
@@ -218,7 +214,7 @@ i{
     padding-left:.5em;
     font-size:.75em;
 }
-.mobileicon i{
+.icon i{
     font-size:1.25em;
     line-height:1.65;
 }
@@ -274,9 +270,9 @@ img.hero{
   #myBtn:hover {
     background-color: #555;
   }
-  #nav .icon {
-    display: none;
-}
+/*#nav .icon {
+    display: block;
+}*/
 .branding img{
     position:absolute;
     top:.5em;
