@@ -47,7 +47,7 @@
         }
       });
       //end csstricks code
-  
+  //handles mobile nave and hamburger icon behavior
       function myFunction() {
         var x = document.getElementById("nav");
         if (x.className === "nav") {
