@@ -1,5 +1,7 @@
 /*typography*/
-
+html{
+    scroll-behavior:smooth;
+}
 body{
     background:#f8f8f8;
     font-family: "Merriweather", Georgia, serif;
@@ -43,7 +45,6 @@ header{
     padding:2em 0 0;
     width:100%;
     background:#00274c;
-    box-shadow:-1px 10px 20px 0 #000;
 }
 footer{
     font-family:"Pathway Gothic One", Helvetica, sans-serif;
