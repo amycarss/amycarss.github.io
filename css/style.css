@@ -66,7 +66,7 @@ address{
 nav{
     width: 100%;
     min-width:200px;
-    padding:1.5em 0 .5;
+    /*padding:1.5em 0 .5;*/
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
     text-align:right;
@@ -136,16 +136,18 @@ div.branding{
     top:.5em;
     left:66px;
 }
-/*switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
+/*For wider screens: switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
 @media only screen and (min-width:650px) {
     .nav a{
     display:inline-block;
     border:none;
-    padding:1em 0;
+    padding:.75em .5em;
+    margin-top:1em;
+    border-bottom:1px solid transparent;
 }
 a.active{
     border-bottom:1px solid #ffcb05;
-    padding:1em 0;
+    padding:.5em 0;
 }
     nav a:first-child{
     border-top:none;
@@ -157,12 +159,35 @@ a.active{
     justify-content:space-around;
     align-content:center;
     }
-    header nav a:hover, header nav a:focus, footer a:hover, footer a:focus, .active, .mobileicon a:hover, .mobileicon a:focus{
+    header nav a:hover, header nav a:focus, footer a:hover, footer a:focus, .active{
         color:#ffcb05;
         }
-    .nav.responsive a.icon, .nav a.icon{
+    .nav a.icon{
          display: none;
-    }     
+    }    
+    nav{
+        position:absolute;
+        top:60px;
+    }
+    
+    nav:first-child{
+        border-top: 0.25px solid darkgrey;
+    }
+    nav:last-child{
+        border:none;
+    }
+    nav a{
+        text-decoration:none;
+        color:#fefefe;
+        padding:1em .5em ;
+        margin:.25em;
+    }
+    nav a:hover, nav a:focus .active{
+        background-color:#fefefe;
+        color:#ffcb05;
+        background-color:rgba(0,0,0,.50);
+    }
+
 }
 
     /*link states*/
