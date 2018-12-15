@@ -122,6 +122,8 @@ div.branding{
     left:0;
     z-index:101;
     display:block;
+    font-family: 'Roboto Slab', serif;
+    font-size:1.15em;
 }
 .branding img{
     position:absolute;
@@ -133,7 +135,7 @@ div.branding{
     line-height:1.2;
     display:block;
     position:absolute;
-    top:.5em;
+    top:.25em;
     left:66px;
 }
 /*For wider screens: switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
