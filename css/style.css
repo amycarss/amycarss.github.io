@@ -88,7 +88,7 @@ nav a{
     padding:1em .5em ;
     margin:.25em;
 }
-nav a:hover, nav a:focus .active{
+nav a:hover, nav a:focus, a.active{
     background-color:#fefefe;
     color:#ffcb05;
     background-color:rgba(0,0,0,.50);
@@ -116,12 +116,15 @@ nav a:hover, nav a:focus .active{
   display: block;
   text-align: right;
 }
+
 div.branding{
     position:absolute;
     top:0;
     left:0;
     z-index:101;
     display:block;
+    font-family: 'Roboto Slab', serif;
+    font-size:1.15em;
 }
 .branding img{
     position:absolute;
@@ -133,7 +136,7 @@ div.branding{
     line-height:1.2;
     display:block;
     position:absolute;
-    top:.5em;
+    top:.25em;
     left:66px;
 }
 /*For wider screens: switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
