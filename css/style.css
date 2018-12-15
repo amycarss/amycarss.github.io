@@ -88,7 +88,7 @@ nav a{
     padding:1em .5em ;
     margin:.25em;
 }
-nav a:hover, nav a:focus .active{
+nav a:hover, nav a:focus, a.active{
     background-color:#fefefe;
     color:#ffcb05;
     background-color:rgba(0,0,0,.50);
@@ -116,6 +116,7 @@ nav a:hover, nav a:focus .active{
   display: block;
   text-align: right;
 }
+
 div.branding{
     position:absolute;
     top:0;
