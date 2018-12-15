@@ -141,7 +141,9 @@ div.branding{
     .nav a{
     display:inline-block;
     border:none;
-    padding:.5em .25em;
+    padding:.75em .5em;
+    margin-top:1em;
+    border-bottom:1px solid transparent;
 }
 a.active{
     border-bottom:1px solid #ffcb05;
