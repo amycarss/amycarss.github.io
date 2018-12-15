@@ -42,7 +42,7 @@ ul{
 }
 /*header and footer styles*/
 header{
-    padding:2em 0 0;
+    padding:2em 0;
     width:100%;
     background:#00274c;
 }
@@ -66,10 +66,14 @@ address{
 nav{
     width: 100%;
     min-width:200px;
-    padding:1.5em 0 0;
+    padding:1.5em 0 .5;
     font-family:Helvetica, sans-serif;
     border-bottom: 0.25px solid darkgrey;
     text-align:right;
+    position:absolute;
+    top:0;
+    right:0;
+    background:#00274c;
    }
 
 nav:first-child{
@@ -81,7 +85,7 @@ nav:last-child{
 nav a{
     text-decoration:none;
     color:#fefefe;
-    padding:1em .5em .25em;
+    padding:1em .5em ;
     margin:.25em;
 }
 nav a:hover, nav a:focus .active{
@@ -95,9 +99,9 @@ nav a:hover, nav a:focus .active{
   .nav a.icon {
     /*float: right;*/
     display: block;
-}
+    }
 .nav.responsive {
-    position: relative;
+    position: absolute;
    margin-top:0;
    padding-top:0;
 
@@ -112,8 +116,26 @@ nav a:hover, nav a:focus .active{
   display: block;
   text-align: right;
 }
-/*end experimental*/
-
+div.branding{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:101;
+    display:block;
+}
+.branding img{
+    position:absolute;
+    top:.5em;
+    left:.5em;
+}
+.branding p{
+    color:#ffcb05;
+    line-height:1.2;
+    display:block;
+    position:absolute;
+    top:.5em;
+    left:66px;
+}
 /*switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
 @media only screen and (min-width:650px) {
     .nav a{
@@ -141,13 +163,6 @@ a.active{
     .nav.responsive a.icon, .nav a.icon{
          display: none;
     }     
-    .branding{
-        width:50px;
-        display:inline;
-        margin:0 auto;
-       
-        margin:0 auto;
-    }
 }
 
     /*link states*/
@@ -284,19 +299,5 @@ img.hero{
   #myBtn:hover {
     background-color: #555;
   }
-/*#nav .icon {
-    display: block;
-}*/
-.branding img{
-    position:absolute;
-    top:.5em;
-    left:.5em;
-}
-.branding p{
-    color:#ffcb05;
-    line-height:1.2;
-    display:block;
-    position:absolute;
-    top:.5em;
-    left:66px;
-}
+
+
