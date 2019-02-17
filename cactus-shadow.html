@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cactus Interactus physics</title>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <!-- https://github.com/donmccurdy/aframe-physics-system -->
+
+
+
+ <a-scene physics="friction: 0.1; restitution: 1.2">
+    <a-assets>
+            <a-asset-item id="barrel" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/barrel/BarrelCactus.gltf" cross-origin="anonymous"></a-asset-item>
+      </a-assets>
+          <!--uses supermedium's environment component -->
+          <a-entity environment="preset:yavapai; skyType:gradient; skyColor:blue; fog:.75; receiveShadow:true"> 
+            <a-entity rotation="-90 0 0" class="environmentGround environment" visible="true" scale="1 1 9.76" position="0 .3 0" shadow="cast: false; receive: true" ></a-entity>
+          </a-entity>
+        <!--add some lights-->
+        <a-entity light="type: directional; color: #F9E0A4; intensity: 0.4; castShadow: true" position="50 1.2 -10 castShadow:true; shadowCameraVisible:true"></a-entity>
+        <a-sphere id="sun" position="250 6 -50" color="#fff" light="type:point; color:red; intensity:70; distance:260; decay:.7;"></a-sphere>
+    
+        <a-text value="Cactus interactus\n by Amy Whitesall" color="#fff" position="-3 1 -3"></a-text>
+        <!--<a-text id="instruct1" value="Grab the ball and throw it" color="#ffffff" position="-3 .65 -1" scale=".75 .75 .75"></a-text>-->
+    
+    
+        
+      
+      <a-sphere dynamic-body click-drag id="barrel2" position="0 5.25 -7" radius="1" shadow></a-sphere>
+      <a-entity dynamic-body click-drag gltf-model="#barrel" id="barrel2" position="1 5.25 -8" radius=".5" shadow></a-entity>
+      <a-entity dynamic-body click-drag gltf-model="#barrel" id="barrel2" position="-1 5.25 -6" radius=".75" shadow></a-entity>
+      <a-entity dynamic-body click-drag gltf-model="#barrel" id="barrel2" position="1.25 5.25 -6.5" radius=".25" shadow></a-entity>
+    
+      <a-plane static-body click-drag position="0 0 -4" rotation="-90 0 0" width="100" height="100" color="#fff" visible="false"></a-plane>
+    
+    
+    </a-scene>
+</body>
+</html>
