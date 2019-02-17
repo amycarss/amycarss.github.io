@@ -22,9 +22,10 @@
       </a-assets>
           <!--uses supermedium's environment component -->
           <a-entity environment="preset:yavapai; skyType:gradient; skyColor:blue; fog:.75; receiveShadow:true"> 
-      <a-entity rotation="-90 0 0" class="environmentGround environment" visible="" scale="1 1 9.76" shadow="cast:false; receive:true"></a-entity></a-entity>
+            <a-entity rotation="-90 0 0" class="environmentGround environment" visible="true" scale="1 1 9.76" shadow="cast: false; receive: true" ></a-entity>
+          </a-entity>
         <!--add some lights-->
-        <a-entity light="type: directional; color: #F9E0A4; intensity: 0.4; castShadow: true" position="-0.5 1 1 castShadow:true; shadowCameraVisible:true"></a-entity>
+        <a-entity light="type: directional; color: #F9E0A4; intensity: 0.4; castShadow: true" position="50 1.2 -10 castShadow:true; shadowCameraVisible:true"></a-entity>
         <a-sphere id="sun" position="250 6 -50" color="#fff" light="type:point; color:red; intensity:70; distance:260; decay:.7;"></a-sphere>
     
         <a-text value="Cactus interactus\n by Amy Whitesall" color="#fff" position="-3 1 -3"></a-text>
