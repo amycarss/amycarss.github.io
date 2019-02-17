@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>cactus-sunset-laser</title>
+   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+</head>
+
+<body>
+
+  <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+<script src="//unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
+<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+<script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+<script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+<script src="//unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+<script>
+	// turn controller's physics presence on only while button held down // this code comes from Michael Nebeling's A-Frame Super Hands Component https://codepen.io/mnebeling/pen/qLQjLJ?editors=1000
+	AFRAME.registerComponent("phase-shift", {
+		init: function() {
+			console.warn("installing phase shift");
+			var el = this.el;
+			el.addEventListener("gripdown", function() {
+				el.setAttribute("collision-filter", {
+					collisionForces: true
+				});
+			});
+			el.addEventListener("gripup", function() {
+				el.setAttribute("collision-filter", {
+					collisionForces: false
+				});
+			});
+		}
+	});
+</script>
+//Javascript is from Michael's VR gaze travel example
+<script>
+let cameraRig = document.querySelector("#camera-rig");
+let camera = document.querySelector("#camera");
+let waypoint = document.querySelector(".waypoint");
+//thanks M. Nebeling for helping me clean up the messy javascript
+[].forEach.call(document.querySelectorAll(".waypoint"), function(waypoint) {
+	waypoint.addEventListener("click", function(e) {
+		// move the camera rig to the new location
+		cameraRig.setAttribute("position", this.getAttribute("position"));
+	});
+});
+</script>
+
+//Don McCurdy's example model opacity component from Stack overflow https://stackoverflow.com/questions/43914818/alpha-animation-in-aframe-for-a-object-model
+	<script>AFRAME.registerComponent('model-opacity', {
+		schema: {
+			default: 1.0
+		},
+		init: function() {
+			this.el.addEventListener('model-loaded', this.update.bind(this));
+		},
+		update: function() {
+			var mesh = this.el.getObject3D('mesh');
+			var data = this.data;
+			if (!mesh) {
+				return;
+			}
+			mesh.traverse(function(node) {
+				if (node.isMesh) {
+					node.material.opacity = data;
+					node.material.transparent = data < 1.0;
+					node.material.needsUpdate = true;
+				}
+			});
+		}
+	});
+</script>
+
+<a-scene environment="preset:yavapai; skyType:gradient; skyColor:darkblue; fog:.75" cursor="rayOrigin:mouse" physics>
+	<!--the 3Dmodels-->
+	<a-assets>
+		<a-asset-item id="saguaro" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/saguaro/Saguaro.gltf"></a-asset-item>
+		<!--tall cactus "Cactus" https://poly.google.com/view/1_3Ur2-LAs8 by Poly by Google is licensed under CC BY 3.0https://creativecommons.org/licenses/by/3.0/legalcode-->
+
+		<a-asset-item id="barrel" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/barrel/BarrelCactus.gltf"></a-asset-item>
+		<!--"Barrel cactus" https://poly.google.com/view/5-hrumGDq1K by Poly by Google is licensed under CC BY 3.0-->
+
+		<a-asset-item id="flower" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/flower/model.gltf"></a-asset-item>
+		<!--"Prickly Pear Cactus"by Poly by Google https://poly.google.com/view/47Af27jQemx is licenesd under CC  BY 3.0-->
+		<!-- mixin setup from Michael Nebeleing super hands componenet example-->
+		<a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false" static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;     colliderEventProperty: els; colliderEndEvent: collisions; colliderEndEventProperty: clearedEls;">
+		</a-mixin>
+	</a-assets>
+	<!--the scene: environment component https://github.com/supermedium/aframe-environment-component
+https://aframe.io/docs/0.8.0/components/cursor.html-->
+
+	<!--add some lights-->
+	<a-entity light="type: directional; color: #F9E0A4; intensity: 0.4; castShadow: true" position="-0.5 1 1 castShadow:true; shadowCameraVisible:true"></a-entity>
+	<a-sphere id="sun" position="250 6 -50" color="#fff" light="type:point; color:red; intensity:70; distance:260; decay:.7;"></a-sphere>
+
+	<a-text value="Cactus interactus\n by Amy Whitesall" color="#ffffff" position="-3 1 -3"></a-text>
+	<a-text id="instruct1" value="visit each floating platform and clean up the cacti" color="#ffffff" position="-3 .9 -1.5" scale=".5 .5 .5"></a-text>
+
+	<!--add the waypoint and camera rig setup from Michael Nebeling VR Gaze Travel example https://codepen.io/mnebeling/pen/REXNzM will use this to create four teleportatinplatforms and zones, each with cacti that behave differently on mousenter and click-->
+	<a-entity id="startzone" class="waypoint" position="0 0 0">
+		<a-cone id="start" rotation="0 0 180" scale="2 1 2" radius="2" color="red" opacity="1" light="type:point; intensity: 20; color:red; distance:1; decay:.4"></a-cone>
+	</a-entity>
+
+	<a-entity id="zone1" class="waypoint" position="-15 2 -10">
+		<a-cone id="waypoint1" rotation="0 0 180" bottom-radius="2" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 3; color: yellow; distance:3; decay:.4" sound="src: #background; on: click; loop: true" event-set__fadetext="_event: click; _target: #instruct1; visible:false"></a-cone>
+		<a-entity gltf-model="#saguaro" id="saguaro1" position="-8 -2 -13" scale="1 1 1" animation__spin="property:rotation; 
+                 dir: clockwise;
+                 dur: 200; 
+                 to: 0 360 0;
+                 loop:true;
+                 startEvents: mouseenter;
+                 pauseEvents:mouseleave">
+			<a-animation attribute="model-opacity" dur="1000" from="1" to="0" repeat="0" begin="click"></a-animation>
+
+		</a-entity>
+		<a-entity gltf-model="#saguaro" id="saguaro2" position="-4.5 -2 -15.5" scale=".5 .5 .5" animation__spin="property: rotation; 
+						     dir: clockwise;
+						     dur: 200; 
+						     to: 0 360 0; 
+							   loop:true; 
+							   startEvents:mouseenter;
+								pauseEvents:mouseleave">
+
+			<a-animation attribute="model-opacity" dur="1000" from="1" to="0" repeat="0" begin="click"></a-animation>
+		</a-entity>
+
+		<a-entity gltf-model="#saguaro" id="saguaro3" position="1 -2 -17" scale="1 1 1" animation__spin="property: rotation; 
+                 dir: clockwise;
+                 dur: 200; 
+                 to: 0 360 0;
+                 loop:true;
+                 startEvents: mouseenter;
+                 pauseEvents:mouseleave">
+			<a-animation attribute="model-opacity" dur="1000" from="1" to="0" repeat="0" begin="click"></a-animation>
+
+		</a-entity>
+	</a-entity>
+	<!--zone1-->
+
+	<a-entity id="zone2" position="6 4 -38" class="waypoint">
+		<a-cone id="waypoint2" rotation="0 0 180" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 5; color: yellow; distance:5; decay:.5" event-set__fadetext="_event: click; _target: #instruct2; visible:false"></a-cone>
+		<a-entity gltf-model="#barrel" id="barrel1" position="-4 -1 -18" scale="1 1 1" event-set__bigger="_event: mouseenter; scale: 1.25 1.25 1.25" event-set__smaller="_event: mouseleave; scale: 1 1 1" animation__throw="property: position;
+															dur: 1000;  
+															to: 40 40 180; 
+															startEvents: click" class="clickable">
+		</a-entity>
+		<a-entity gltf-model="#barrel" id="barrel3" class="clickable" position="5 0 -4" scale=".5 .5 .5" event-set__bigger="_event: mouseenter; scale:1.25 1.5 1.25" event-set__smaller="_event: mouseleave; scale:.5 .5 .5" animation__throw="property: position; 
+																dur: 1000;  
+																to: 40 40 180; 
+																startEvents: click">
+		</a-entity>
+
+		<a-entity gltf-model="#barrel" id="barrel4" class="clickable" position="5 0 -8.2" scale=".35 .35 .35" event-set__bigger="_event: mouseenter; scale:.5 .5 .5" event-set__smaller="_event: mouseleave; scale:.35 .35 .35" animation__throw="property: position;  
+                 dur: 1000;
+                 to: 40 40 180;
+                 startEvents: click">
+		</a-entity>
+
+		<a-entity gltf-model="#barrel" id="barrel2" class="clickable" position="-1.2 0 -14.2" scale=".75 1 .75" event-set__bigger="_event: mouseenter; 
+																 scale:1 1.25 1" event-set__smaller="_event: mouseleave; 
+																	scale:.75 1 .75" animation__throw="property: position; 
+																dur: 1000;  
+																to:40 40 180; 
+																startEvents: click" sound="src: #bounce; on: click">
+		</a-entity>
+	</a-entity>
+	<!--zone2-->
+
+	<a-entity id="zone3" position="30 4 -25" class="waypoint">
+		<a-cone id="waypoint3" rotation="0 0 180" radius="2" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 3; color: yellow; distance:5; decay:.3"></a-cone>
+
+		<a-entity gltf-model="#flower" id="flowering2" position="6.2 -8.5 -4" rotation="0 90 0" scale="15 15 15" animation__wiggle="property:position; 								from:6.2 -8.5 -4; 
+							to:6 -8.5 -3.8;
+							fill:backwards;
+							loop:true;
+							dir:alternate;
+							dur:100;
+							easing:easeInOutQuad;
+							startEvents:mouseenter;
+							pauseEvents:mouseleave" animation__retreat="property:position; 
+																	to:-100 -1 300; 
+																	startEvents: click">
+
+		</a-entity>
+		<a-entity gltf-model="#flower" id="flowering3" position="6.2 -5 -4" rotation="0 45 0" scale="8 8 8" animation__wiggle="property:position; 								from:6.2 -5 -4; 
+							to:6 -5 -3.8;
+							fill:backwards;
+							loop:true;
+							dir:alternate;
+							dur:100;
+							easing:easeInOutQuad;
+							startEvents:mouseenter;
+							pauseEvents:mouseleave" animation__retreat="property:position; 
+																	to:-100 -1 300; 
+																	startEvents: click">
+
+		</a-entity>
+		<a-entity gltf-model="#flower" id="flowering4" position="6.2 -5 -4" rotation="0 45 0" scale="5 5 5" animation__wiggle="property:position; 								from:6.2 -5 -4; 
+							to:6 -5 -3.8;
+							fill:backwards;
+							loop:true;
+							dir:alternate;
+							dur:100;
+							easing:easeInOutQuad;
+							startEvents:mouseenter;
+							pauseEvents:mouseleave" animation__retreat="property:position; 
+																	to:-100 -1 300; 
+																	startEvents: click">
+
+		</a-entity>
+	</a-entity>
+	<!--zone3-->
+
+	<a-entity id="head" camera wasd-controls look-controls positon="1 3.5 0">
+		<a-cursor color="white"></a-cursor>
+	</a-entity>
+
+	<!-- hand controls -->
+	<a-entity id="left-hand" mixin="touch" hand-controls="left" gearvr-controls vive-controls="hand: left" oculus-touch-controls="hand: left" windows-motion-controls="hand: left"></a-entity>
+
+	<a-entity id="right-hand" mixin="touch" hand-controls="right" gearvr-controls daydream-controls vive-controls="hand: right" oculus-touch-controls="hand: right" windows-motion-controls="hand: right"></a-entity>
+	</a-entity>
+
+</a-scene>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
