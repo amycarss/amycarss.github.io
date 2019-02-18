@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>cactus-sunset-sounds</title>
+   <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+ <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+<script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
+<script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+<script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+<script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+
+</head>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+  
+</head>
+
+<body>
+
+  <!-- https://aframe.io/docs/master/introduction/#getting-started
+environment component https://github.com/supermedium/aframe-environment-component
+https://aframe.io/docs/0.8.0/components/cursor.html
+tall cactus "Cactus" https://poly.google.com/view/1_3Ur2-LAs8 by Poly by Google is licensed under CC BY 3.0https://creativecommons.org/licenses/by/3.0/legalcode
+
+"Prickly Pear Cactus"by Poly by Google https://poly.google.com/view/47Af27jQemx is licenesd under CC  BY 3.0
+
+"Barrell cactus" https://poly.google.com/view/5-hrumGDq1K by Poly by Google is licensed under CC BY 3.0
+Sound effects and music obtained from zapsplat.com https://www.zapsplat.com
+-->
+
+
+<a-scene>
+	<!--the 3Dmodels-->
+	<a-assets>
+		<a-asset-item id="saguaro" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/saguaro/Saguaro.gltf" crossorigin="anonymous"></a-asset-item><!--tall cactus "Cactus" https://poly.google.com/view/1_3Ur2-LAs8 by Poly by Google is licensed under CC BY 3.0https://creativecommons.org/licenses/by/3.0/legalcode-->
+		<a-asset-item id="barrel" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/barrel/BarrelCactus.gltf" crossorigin="anonymous"></a-asset-item><!--"Barrell cactus" https://poly.google.com/view/5-hrumGDq1K by Poly by Google is licensed under CC BY 3.-->
+		<a-asset-item id="flower" src="https://raw.githubusercontent.com/amycarss/3dmodels/master/flower/model.gltf" crossorigin="anonymous"></a-asset-item><!--"Prickly Pear Cactus"by Poly by Google https://poly.google.com/view/47Af27jQemx is licenesd under CC  BY 3.0-->
+		
+		<!--Sound effects and music obtained from zapsplat.com https://www.zapsplat.com-->
+		<audio id="bounce" src="sound/bounce.mp3" preload="auto" ></audio>
+		<audio id="spin_whistle" src="sound/spin_whistle.mp3" preload="auto" ></audio>
+		<audio id="squeak" src="sound/squeak.mp3" preload="auto" ></audio>
+
+</a-assets>
+	<!--the scene-->
+	<a-entity environment="preset:yavapai; skyType:gradient; skyColor:darkblue; fog:.75"> </a-entity>
+	<!--uses supermedium's environment component  https://github.com/supermedium/aframe-environment-component
+https://aframe.io/docs/0.8.0/components/cursor.html -->
+		<a-text value="Cactus interactus\n by Amy Whitesall" color="#ffffff" position="-3 1 -3"></a-text>
+	<a-entity light="type: directional; color: #F9E0A4; intensity: 0.4" position="-0.5 1 1"></a-entity>
+	<a-sphere id="sun" position="250 6 -50" color="#fff" light="type:point; color:red; intensity:70; distance:260; decay:.7"></a-sphere>
+
+	<a-text value="Cactus interactus\n by Amy Whitesall" color="#ffffff" position="-3 1 -3"></a-text>
+	<a-text id="instruct1" value="visit each floating platform and mess with cacti" color="#ffffff" position="-3 .5 0" scale=".5 .5 .5"></a-text>
+	
+	
+	<!--add the waypoint and camera rig setup from Michael Nebeling VR Gaze Travel example https://codepen.io/mnebeling/pen/REXNzM will use this to create four teleportatinplatforms and zones, each with cacti that behave differently on mousenter and click-->
+	<a-entity id="startzone" class="waypoint" position="0 0 0">
+		<a-cone id="start" rotation="0 0 180" scale="2 1 2" radius="2" color="red" opacity="1" light="type:point; intensity: 20; color:red; distance:1; decay:.4"></a-cone>
+	</a-entity>
+
+	<a-entity id="zone1" class="waypoint" position="-15 2 -10">
+		<a-cone id="waypoint1" rotation="0 0 180" bottom-radius="2" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 3; color: yellow; distance:3; decay:.4"  sound="src: #background; on: click; loop: true"></a-cone>
+		<a-entity gltf-model="#saguaro" id="saguaro1" position="-8 -2 -13" scale="1 1 1" animation__spin="property:rotation; 
+                 dir: clockwise;
+                 dur: 200; 
+                 to: 0 360 0;
+                 loop:true;
+                 startEvents: mouseenter;
+                 pauseEvents:mouseleave"
+							sound="src: url(#spin_whistle); on: mouseenter; poolSize:3; autoplay:true">
+          </a-entity>
+		</a-entity>
+	
+	</a-entity>
+	<!--zone1-->
+
+	<a-entity id="zone2" position="6 4 -38" class="waypoint">
+		<a-cone id="waypoint2" rotation="0 0 180" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 5; color: yellow; distance:5; decay:.5"></a-cone>
+		<a-entity gltf-model="#barrel" id="barrel1" position="-4 -1 -18" scale="1 1 1" 
+							event-set__bigger="_event: mouseenter; scale: 1.25 1.25 1.25" 
+							event-set__smaller="_event: mouseleave; scale: 1 1 1" 
+							sound="src: #bounce; on: mouseenter">
+		</a-entity>
+		
+	</a-entity>
+	<!--zone2-->
+
+	<a-entity id="zone3" position="30 4 -25" class="waypoint">
+		<a-cone id="waypoint3" rotation="0 0 180" radius="2" scale="2 .75 2" color="yellow" opacity="1" light="type:point; intensity: 3; color: yellow; distance:5; decay:.3"></a-cone>
+
+		<a-entity gltf-model="#flower" id="flowering2" position="6.2 -8.5 -4" rotation="0 90 0" scale="15 15 15" animation__wiggle="property:position; 								from:6.2 -8.5 -4; 
+							to:6 -8.5 -3.8;
+							loop:true;
+							dir:alternate;
+							dur:100;
+							easing:easeInOutQuad;
+							startEvents:mouseenter;
+							pauseEvents:mouseleave" sound="src: #squeak; on: mouseenter">
+
+		</a-entity>
+		
+	</a-entity>
+	<!--zone3-->
+
+	
+	<a-entity id="camera-rig">
+		<a-camera id="camera" position="0 1.5 0">
+			<a-cursor fuse="true"></a-cursor>
+		</a-camera>
+	</a-entity>
+
+</a-scene>
+</body>
+
+</html>
