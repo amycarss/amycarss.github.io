@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Podcast players</title>
+    <!-- Dependencies -->
+<script src="thirdparty/modernizr.custom.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="thirdparty/js.cookie.js"></script>
+
+<!-- CSS -->
+<link rel="stylesheet" href="build/ableplayer.min.css" type="text/css"/>
+
+<!-- JavaScript -->
+<script src="build/ableplayer.min.js"></script>
   </head>
   <body>
 
@@ -29,6 +39,12 @@
   <div>
     <h2>Transistor</h2>
   </div>
-
+<div>
+  <h2>Able player</h2>
+  <audio id="audio1" data-able-player preload="auto">
+    <source type="audio/ogg" src="path_to_audio_file.ogg"/>
+    <source type="audio/mpeg" src="path_to_audio_file.mp3"/>
+  </audio>
+</div>
   </body>
 </html>
