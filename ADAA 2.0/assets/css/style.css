@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.44;
+}
+
+#wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#wrapper > nav {
+  width: 300px;
+  padding: 2em;
+  background: #eee;
+}
+
+#wrapper > nav ul {
+  padding: 0;
+  margin: 0 0 0 1em;
+}
+
+#wrapper > nav + #main {
+  width: calc(100% - 300px);
+  padding: 2em;
+}
+
+#main p {
+  margin: 1em 0;
+}
+
+#main p:first-child {
+  margin-top: 0;
+}
+
+#main p:last-child {
+  margin-bottom: 0;
+}
+
+ nav ul>li{
+   font-weight:bold;
+   list-style-type:none;
+   }
+ nav ul li ul li{
+   font-weight:normal;
+   }
+nav > ul > li:first-child{
+font-size:1em;
+text-transform: uppercase;
+  }
