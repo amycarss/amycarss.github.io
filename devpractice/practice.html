@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">   
+<script>
+function celebrate() {
+    document.getElementById("celebration").style.color="red";
+}
+    document.getElementsByClassName("avatar").style.height="200px"; 
+    document.getElementsByClassName("avatar").style.width="200px";
+</script>
+    <title>Practice</title>
+</head>
+<body>
+  <h1> VSCode Shortcuts</h1>  
+  <p>To get the html doctype in VS code, create a html file and save it, then go into your file in VS code and type an exclamation point. While you're holding the keys down, the doctype will appear in a little modal window, and hitting enter will paste it into your file.</p>
+  <button type="button" onclick="celebrate()">
+Done.
+  </button>
+  <p id="celebration">Yay!</p>
+  <p>And to get Live Server Preview to work, go to the html file, press F1 and select "Show Live Server Preview" from the dropdown.</p>
+<button type="button" onclick="document.getElementById('reaction').style.display='block'">Got it!</button>
+<p id="reaction">Now we're cookin' with gas!</p>
+
+<!--a console log script just to test the syntax-->
+<script>
+var x = 4;
+console.log('got this far');
+console.log(x);
+</script>
+
+
+<p>(Placing scripts here - just before the closing body tag - improves display speed). If the same code is used on many different pages, use an external scripts file. since this is all on one page, that's not necessary.</p>
+<script>
+//turns the word Yay! red
+    function celebrate() {
+        document.getElementById("celebration").style.color="red";
+        console.log("celebrate script ran");
+    }
+    function validateForm() {
+        ;
+    }
+    console.log('made it all the way to the end');
+    </script>
+</body>
+</html>
