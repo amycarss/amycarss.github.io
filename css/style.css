@@ -277,7 +277,7 @@ nav:last-child{
 nav a{
     text-decoration:none;
     color:#fefefe;
-    padding:1em .5em ;
+    padding:.5em .5em ;
     margin:.25em;
 }
 nav a:hover, nav a:focus, a.active{
@@ -430,6 +430,9 @@ a.icon:hover, a.icon:focus{
      }
     .blurb{
         flex-basis:90%;
+    }
+    main{
+        padding-top:100px;
     }
 }
  
