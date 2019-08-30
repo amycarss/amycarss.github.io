@@ -1,0 +1,326 @@
+/*mobile navigation and hamburger behavior adapted from w3schools How To: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp
+/*back to top button adaptred from W3Schools How To: https://www.w3schools.com/howto/howto_js_scroll_to_top.asp*/
+/*typography*/
+html{
+    scroll-behavior:smooth;
+}
+body, main{
+    background:#f8f8f8;
+    font-family: "Merriweather", Georgia, serif;
+    font-weight:400;
+    font-size:16px;
+    color:#202020;
+    width:100%;
+    box-sizing:border-box;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Montserrat", Helvetica, sans-serif;
+    font-weight:700;
+    line-height:1.6em;
+}
+h1{
+    font-size:2em;
+font-weight:900;
+}
+h2{
+    font-size:1.5em;
+}
+h3{
+    font-size:1.3em;
+}
+h4{
+    font-size:1.15em;
+}
+p, ul, li{
+    line-height:1.65em;
+    padding:.5em;
+}
+ul{
+    padding-left:2em;
+}
+
+/*header and footer styles*/
+header{
+    padding:2em 0;
+    width:100%;
+    background:#00274c;
+}
+footer{
+    font-family:"Pathway Gothic One", Helvetica, sans-serif;
+    background:#202020;
+    padding:.5em 0 1em .5em;
+    color:#ededed;
+    margin: 2em 0 0 0;
+    }
+address{
+    font-style:normal;
+    text-transform:uppercase;
+    font-stretch:ultra-expanded;
+    padding:.5em;
+    background: #202020;
+    text-align:center;
+}
+/*main navigation*/
+/*mobile view*/
+nav{
+    width: 100%;
+    min-width:200px;
+    /*padding:1.5em 0 .5;*/
+    font-family:Helvetica, sans-serif;
+    border-bottom: 0.25px solid darkgrey;
+    text-align:right;
+    position:absolute;
+    top:0;
+    right:0;
+    background:#00274c;
+   }
+
+nav:first-child{
+    border-top: 0.25px solid darkgrey;
+}
+nav:last-child{
+    border:none;
+}
+nav a{
+    text-decoration:none;
+    color:#fefefe;
+    padding:1em .5em ;
+    margin:.25em;
+}
+nav a:hover, nav a:focus, a.active{
+    background-color:#fefefe;
+    color:#ffcb05;
+    background-color:rgba(0,0,0,.50);
+}
+
+/*mobile nav hamburger behavior*/
+.nav a:not(:first-child) {display: none;}
+  .nav a.icon {
+    display: block;
+    }
+.nav.responsive {
+    position: absolute;
+   margin-top:0;
+   padding-top:0;
+
+}
+.nav.responsive a.icon {
+  right: 0;
+  top:.5em;
+}
+.nav.responsive a {
+  display: block;
+  text-align: right;
+}
+
+div.branding{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:101;
+    display:block;
+    font-family: 'Roboto Slab', serif;
+    font-size:1.15em;
+}
+.branding img{
+    position:absolute;
+    top:.5em;
+    left:.5em;
+}
+.branding p{
+    color:#ffcb05;
+    line-height:1.2;
+    display:block;
+    position:absolute;
+    top:.25em;
+    left:66px;
+}
+/*For wider screens: switches to horizontal nav on screens 650px and wider, changes size and presentation of anchors*/
+@media only screen and (min-width:650px) {
+    .nav a{
+    display:inline-block;
+    border:none;
+    padding:.75em .5em;
+    margin-top:1em;
+    border-bottom:1px solid transparent;
+}
+a.active{
+    border-bottom:1px solid #ffcb05;
+    padding:.5em 0;
+}
+    nav a:first-child{
+    border-top:none;
+}
+    .nav a:not(:first-child) {display: inline-block;}
+    .nav{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-content:center;
+    }
+    header nav a:hover, header nav a:focus, footer a:hover, footer a:focus, .active{
+        color:#ffcb05;
+        }
+    .nav a.icon{
+         display: none;
+    }    
+    nav{
+        position:absolute;
+        top:60px;
+    }
+    
+    nav:first-child{
+        border-top: 0.25px solid darkgrey;
+    }
+    nav:last-child{
+        border:none;
+    }
+    nav a{
+        text-decoration:none;
+        color:#fefefe;
+        padding:1em .5em ;
+        margin:.25em;
+    }
+    nav a:hover, nav a:focus .active{
+        background-color:#fefefe;
+        color:#ffcb05;
+        background-color:rgba(0,0,0,.50);
+    }
+
+}
+
+    /*link states*/
+a {
+	color:#9a3324;
+	text-decoration:underline;
+}
+footer address a, nav ul li a{
+    color:#ededed;
+}
+footer address a:visited{
+    color:#ffcb05;
+}
+a:active, a:hover, a:focus {
+	color:#702082;
+}
+/*positions content in the middle of the page*/
+.container{
+    grid-column:2/5;
+    grid-row-start:2;
+}
+
+a.icon:hover, a.icon:focus{
+    color:#ffcb05;
+    }
+/*card array*/
+.card h2, .card h3, .card p{
+    width:90%;
+}
+.card img{
+    width:99%;
+}
+.card .image{
+    width: 100%; 
+}
+.card{
+    background-color:#fefefe;
+    margin:3em 0;  
+ }
+
+ .blurb{
+     padding:1em 0 2em 1em;
+ }
+
+/*mobile landscape: in landscape orientation, the card gets display:flex and the image and text display horizontally*/
+@media only screen and (orientation:landscape) {
+    .card{
+         display:flex;
+     }
+    .blurb{
+        flex-basis:90%;
+    }
+}
+ 
+ /*Wider screens: layout changes to tiled rows of 3 cards at 1000 px wide browser window*/
+@media only screen and (min-width:1000px) {
+    .wrapper{
+        display:grid;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-column:span 3;
+        grid-gap:15px 40px;
+    }
+     .card .blurb{
+        display:block;
+        width:90%;
+        padding:2em;
+    }
+    .card{
+        display:inline-block;
+    }
+}
+/*icons*/
+i{
+    padding-left:.5em;
+    font-size:.75em;
+}
+.icon i{
+    font-size:1.25em;
+    line-height:1.65;
+}
+/*sets desktop page columns*/
+main.page{
+    display:grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 5%;
+    grid-template-rows: auto;
+    margin:0 auto;
+}
+/* hero image*/
+img.hero{
+    width:100%;
+    grid-column:1/6;
+    grid-row-start:1;
+    margin-bottom:1em;
+}
+/*skip link*/
+#skip a{
+    width:20%;
+    position:absolute;
+    top:0;
+    left:-1000px;
+    z-index:100;
+}
+#skip a:focus, #skip a:active{
+    position:absolute;
+    top:0;
+    left:10px;
+    color:#00274c;
+    background-color: #f8f8f8;
+}
+/*back to top button*/
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #00274c;
+    opacity: 0.95;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+  }
+  #myBtn a{
+      color:#fefefe;
+      text-decoration:none;
+  }
+  
+  #myBtn:hover {
+    background-color: #555;
+  }
+
