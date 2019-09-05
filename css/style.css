@@ -44,7 +44,9 @@ ul{
 header{
     padding:2em 0;
     width:100%;
-    background:#body {
+    background-color:#fefefe;
+}
+#body{
     font-family: Helvetica, sans-serif;
     background-color: #660033;
     font-size: 16px;
@@ -78,7 +80,7 @@ main {
     grid-column:1 / span 4;
     padding: 0;
 }
-.leftblock {
+/*.leftblock {
     width: 100%;
     grid-column:1 / span 2;
 }
@@ -88,7 +90,7 @@ main {
 }
 .vidinfo {
     grid-column:1 / span 2;
-}
+}*/
 h3 {
     text-transform: capitalize;
     font-weight: 550;
@@ -141,8 +143,8 @@ img.wide{
     background-color:#e9e9e9;
 }
 .tools h3, .tools p{padding:0 2em;
-};
 }
+
 footer{
     font-family:"Pathway Gothic One", Helvetica, sans-serif;
     background:#202020;
