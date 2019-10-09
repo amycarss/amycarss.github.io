@@ -3,7 +3,7 @@ body{
     font-family: 'Noto Serif', serif;
     display:grid;
     grid-template-columns: 10% 20% auto 20% 10%;
-    grid-template-rows:50px 50% 50% 50px;
+    grid-template-rows:50px 90% 10% 50px;
 }
 h1, h2{
     font-family: 'Open Sans', sans-serif;
@@ -23,4 +23,7 @@ footer{
 /*image style*/
 #check{
     width:5%;
+}
+#explain{
+    visibility:hidden;
 }

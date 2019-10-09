@@ -10,16 +10,22 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Open+Sans&display=swap" rel="stylesheet">
     <script src="main.js"></script>  
 </head>
-<body> 
+<body onload="check();"> 
         <header>
-                <p>logo here and University of Michigan Collegeof Engineering Communications and Marketing</p>
+                <p>logo here and University of Michigan College of Engineering Communications and Marketing</p>
         </header>
         <main>
             <h1>Thanks!</h1>   
-        
+       <div>
+           <p>here's how your answers stacked up. The correct answers are:</p>
+           <ul>
+               <li id="submit1" onload="replay();"></li>
+               
+           </ul>
+       </div> 
       
        <div>
-           <p>The correct answers are:</p>
+           
  
         <form id="answers" name="answers">
             <fieldset>
@@ -33,7 +39,7 @@
                     <input id="button" type="button" value="Done!" aria-label="submit">
                 </fieldset>
         </form>
-    </div>
+  
         <h2>Here's why</h2>
         <h2>Inclusive language: Faculty</h2>
 
@@ -54,7 +60,8 @@
 <p>Also, be careful about using the label “Core” as it relates to faculty. “Core” should not be used to distinguish one faculty group from another (for example, referring to only tenure-track faculty as Core Faculty and grouping them apart from Research Faculty and Lecturers). 
 
 “Core” should relate to a faculty member’s level of appointment or activity within a department. (So, for example, a faculty member with a dry appointment might not be listed among Core Faculty, but a lecturer who teaches exclusively within your department would.)</p>
-        </main>
+</div>
+</main>
         <footer>
             <p>just some boilerplate words to take up the space</p>
         </footer>
