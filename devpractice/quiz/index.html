@@ -12,7 +12,7 @@
 </head>
 <body><!--a simple one question quiz that requires at least one box to be checked and, on submit, indicates correct and incorrect answers and slides an explainer into the field of view-->
     <header>
-        <p>logo here and University of Michigan Collegeof Engineering Communications and Marketing</p>
+        <p>logo here and University of Michigan College of Engineering Communications and Marketing</p>
     </header>
     <main>
     <h1>How well do you know your faculty?</h1>
@@ -25,7 +25,7 @@
         <input id="prof-practice" type="checkbox" name="prof-practice" value="Professors of practice"><label for="prof-practice">Professors of practice</label><br>
         <input id="researchers" type="checkbox" name="researchers" value="Researchers"><label for="researchers">Researchers</label><br>
         <input id="tenure-track" type="checkbox" name="tenure-track" value="Tenure-track faculty"><label for="tenure-track">Tenure-track faculty</label><br>
-        <input id="button" type="submit" value="Done!" onclick="response();" aria-label = "submit">
+        <input id="button" type="button" value="Done!" onclick="response();" aria-label="submit"><!--switched to type="button". type="submit" causes it to submit and refresh the page-->
     </fieldset>
     </form>
     
