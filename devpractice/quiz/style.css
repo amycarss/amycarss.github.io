@@ -20,8 +20,12 @@ footer{
     grid-column:2 / span 3;
     grid-row:5 / span 1;
 }
+/*Explainer*/
 #explain{
     visibility: hidden;
+}
+.bold{
+    font-weight: bold;
 }
 /*image style*/
 #check{
