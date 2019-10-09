@@ -20,10 +20,10 @@ footer{
     grid-column:2 / span 3;
     grid-row:5 / span 1;
 }
+#explain{
+    visibility: hidden;
+}
 /*image style*/
 #check{
     width:5%;
-}
-#explain{
-    visibility:hidden;
 }

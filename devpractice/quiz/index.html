@@ -16,7 +16,7 @@
     </header>
     <main>
     <h1>How well do you know your faculty?</h1>
-    <form id="quiz" name="quiz" action="response();">
+    <form id="quiz" name="quiz" onsubmit="return false"><!--return false to keep the form from submitting and resetting the page. This allows me to have the response appear on same page -->
     <fieldset>
     <legend>"Faculty" includes which of the following groups?</legend>
         <input id="adjuncts" type="checkbox" name="adjuncts" value="Adjuncts"><label for="adjuncts">Adjuncts</label><br>
@@ -25,7 +25,7 @@
         <input id="prof-practice" type="checkbox" name="prof-practice" value="Professors of practice"><label for="prof-practice">Professors of practice</label><br>
         <input id="researchers" type="checkbox" name="researchers" value="Researchers"><label for="researchers">Researchers</label><br>
         <input id="tenure-track" type="checkbox" name="tenure-track" value="Tenure-track faculty"><label for="tenure-track">Tenure-track faculty</label><br>
-        <input id="button" type="submit" value="Done!" onclick="response();" aria-label="submit">
+        <input id="button" type="submit" value="Done!" onclick="response();" aria-label = "submit">
     </fieldset>
     </form>
     
