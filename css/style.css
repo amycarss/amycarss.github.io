@@ -519,4 +519,9 @@ img.hero{
   #myBtn:hover {
     background-color: #555;
   }
-
+.prototype{
+	grid-column: 2/1;
+}
+.model{
+	grid-column: 3/2;
+}
