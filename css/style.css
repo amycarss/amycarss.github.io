@@ -469,7 +469,7 @@ i{
 main.page{
     display:grid;
     grid-template-columns: 5% 1fr 1fr 1fr 5%;
-    grid-template-rows: auto;
+    grid-template-rows: 50px 1fr 1fr 50px;
     margin:0 auto;
 }
 /* hero image*/
