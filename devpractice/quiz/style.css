@@ -25,10 +25,12 @@ footer{
 /*Explainer*/
 #explain{
     visibility: hidden;
+    padding-top:2em;
 }
 .bold{
     font-weight: bold;
 }
+
 /*image style*/
 .shrink{
     width:5%;
