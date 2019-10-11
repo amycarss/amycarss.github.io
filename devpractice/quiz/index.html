@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Open+Sans&display=swap" rel="stylesheet">
     <script src="main.js"></script>  
+    <script src="jquery.serialize-object.min.js"></script>
 </head>
-<body><!--a simple one question quiz that requires at least one box to be checked and, on submit, indicates correct and incorrect answers and slides an explainer into the field of view. wow, if i want it to submit to a google sheet it gets complicated https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175-->
+<body><!--a simple one question quiz that requires at least one box to be checked and, on submit, indicates correct and incorrect answers and slides an explainer into the field of view. wow, if i want it to submit to a google sheet it gets complicated https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175   submitting to https://script.google.com/macros/s/AKfycbwDR2miVpL7o8xOV7vt_NQp79YrUdoKsRuxLZZFW4eEoUGKeVHt/exec-->
     <header>
         <p><img src="assets/COE-horiz.png" class="logo" alt=""/></p>
     </header>
@@ -56,6 +57,23 @@
     <footer>
         <p></p>
     </footer>
+
+<script>
+var $form = $('form#test-form'),
+url = 'https://script.google.com/macros/s/AKfycbwDR2miVpL7o8xOV7vt_NQp79YrUdoKsRuxLZZFW4eEoUGKeVHt/exec'
+
+$('#button).on('click', function(e) {
+e.preventDefault();
+var jqxhr = $.ajax({
+url: url,
+method: "GET",
+dataType: "json",
+data: $form.serializeObject()
+}).success(
+// do something
+);
+})
+</script>
 </body>
 </html>
 <!--https://youtu.be/C7NsIRhoWuE -->
