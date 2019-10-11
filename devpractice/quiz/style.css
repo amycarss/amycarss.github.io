@@ -2,25 +2,50 @@
 body{
     font-family: 'Noto Serif', serif;
     display:grid;
-    grid-template-columns: 10% 20% auto 20% 10%;
-    grid-template-rows:50px 50% 50% 50px;
+    grid-template-columns: 15% auto 15%;
+    grid-template-rows:50px 90% 10% 50px;
 }
 h1, h2{
     font-family: 'Open Sans', sans-serif;
 }
 header{
-    grid-column:2 / span 3;
+    grid-column:1 / span 3;
     grid-row:1 /span 1;
 }
 main{
-    grid-column:3 / span 1;
+    grid-column:2 / span 1;
     grid-row:2 / span 1;
+    width:340px;
+    margin:5%;
 }
 footer{
-    grid-column:2 / span 3;
+    grid-column:1 / span 3;
     grid-row:5 / span 1;
 }
+/*Explainer*/
+#explain{
+    visibility: hidden;
+}
+.bold{
+    font-weight: bold;
+}
 /*image style*/
-#check{
+.shrink{
     width:5%;
+}
+.logo{
+    width:200px;
+}
+input{
+    margin:.5em;
+}
+@media screen and (min-width:640px){
+    main{
+        width:600px;
+    }
+}
+@media screen and (min-width:1024px){
+    main{
+        width:800px;
+    }
 }
