@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inclusive language quiz</title>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif|Open+Sans&display=swap" rel="stylesheet">
+    <script src="main.js"></script>  
+</head>
+<body>
+    <header>
+        <p><img src="assets/C&M_signature_bluetext.png" alt=""/></p>
+    </header>
+    <main>
+    <h1>How well do you know your faculty?</h1>
+    <form id="quiz" name="quiz" action="/response.html" >
+    <fieldset>
+    <legend>"Faculty" includes which of the following groups?</legend>
+        <input id="adjuncts" type="checkbox" name="adjuncts" value="Adjuncts"><label for="adjuncts">Adjuncts</label><br>
+        <input id="lecturers" type="checkbox" name="lecturers" value="Lecturers"><label for="lecturers">Lecturers</label><br>
+        <input id="postdocs" type="checkbox" name="postdocs" value="Postdocs"><label for="postdocs">Postdocs</label><br>
+        <input id="prof-practice" type="checkbox" name="prof-practice" value="Professors of practice"><label for="prof-practice">Professors of practice</label><br>
+        <input id="researchers" type="checkbox" name="researchers" value="Researchers"><label for="researchers">Researchers</label><br>
+        <input id="tenure-track" type="checkbox" name="tenure-track" value="Tenure-track faculty"><label for="tenure-track">Tenure-track faculty</label><br>
+        <input id="button" type="button" value="Done!" onclick="submit();" aria-label="submit">
+    </fieldset>
+    </form>
+    </main>
+    <footer>
+        <p>just some boilerplate words to take up the space</p>
+    </footer>
+</body>
+</html>
+<!--https://youtu.be/C7NsIRhoWuE -->
