@@ -17,7 +17,7 @@
     </header>
     <main>
     <h1>Who are your faculty?</h1>
-    <form id="quiz" name="quiz" onsubmit="return false"><!--return false to keep the form from submitting and resetting the page. This allows me to have the response appear on same page -->
+    <form id="quiz" name="quiz"> <!--onsubmit="return false">return false to keep the form from submitting and resetting the page. This allows me to have the response appear on same page -->
     <fieldset>
     <legend>"Faculty" includes which of the following groups?</legend>
         <input id="adjuncts" type="checkbox" name="adjuncts" value="Adjuncts"><label for="adjuncts">Adjuncts</label><br>
@@ -59,7 +59,7 @@
     </footer>
 
 <script>
-var $form = $('form#test-form'),
+var $form = $('form#quiz'),
 url = 'https://script.google.com/macros/s/AKfycbwDR2miVpL7o8xOV7vt_NQp79YrUdoKsRuxLZZFW4eEoUGKeVHt/exec'
 
 $('#button).on('click', function(e) {
@@ -76,4 +76,4 @@ data: $form.serializeObject()
 </script>
 </body>
 </html>
-<!--https://youtu.be/C7NsIRhoWuE -->
+<!-- https://youtu.be/C7NsIRhoWuE -->
