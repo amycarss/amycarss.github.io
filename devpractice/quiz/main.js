@@ -3,26 +3,28 @@ function response(){
     document.getElementById("explain").style.visibility = "visible"; //make the explainer visible only after quiz is submitted
 } */
 function checker(){
-    var adjuncts = document.quiz.adjuncts.value;
-    var lecturers = document.quiz.lecturers.value;
-    var postdocs = document.quiz.postdocs.value;
-    var profPractice =document.quiz.profpractice.value;
-    var researchers = document.quiz.researchers.value;
-    var tenureTrack = document.quiz.tenuretrack.value;
+    //var adjunct = document.getElementById("adjuncts").checked;
+    var lecturer = document.getElementById("lecturers").checked;
+    //var postdoc = document.getElementById("postdocs").checked;
+    var profPractice =document.getElementById("profpractice").checked;
+    var researcher = document.getElementById("researchers").checked;
+    var tenureTrack = document.getElementById("tenuretrack").checked;
     var counter = 0;
-    if (lecturers.checked){
+
+    console.log(lecturer);
+    if (lecturer==true) {
         counter++;
 }
     console.log(counter);
-    if (profPractice.checked){
+    if (profPractice==true){
         counter++;
 }
     console.log(counter);
-    if (researchers.checked){
+    if (researcher==true){
         counter++;
 }
     console.log(counter);
-    if (tenureTrack.checked){
+    if (tenureTrack==true){
         counter++;
 }
     console.log(counter);
