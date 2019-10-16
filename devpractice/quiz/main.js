@@ -10,7 +10,8 @@ function checker(){
     var researcher = document.getElementById("researchers").checked;
     var tenureTrack = document.getElementById("tenuretrack").checked;
     var counter = 0;
-
+    
+    document.getElementById("quiz").style.display = "none";
     console.log(lecturer);
     if (lecturer==true) {
         counter++;
