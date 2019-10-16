@@ -11,7 +11,7 @@ function checker(){
     var tenureTrack = document.getElementById("tenuretrack").checked;
     var counter = 0;
     
-    document.getElementById("quiz").style.display = "none";
+    document.getElementById("quiz").style.display = "none"; //make the quiz disappear after submission
     console.log(lecturer);
     if (lecturer==true) {
         counter++;
