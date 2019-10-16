@@ -22,6 +22,9 @@ footer{
     grid-column:1 / span 3;
     grid-row:5 / span 1;
 }
+.emphasize{
+    font-weight:900;
+}
 /*Explainer*/
 #explain{
     visibility: hidden;
@@ -29,7 +32,7 @@ footer{
     border-top:1px solid darkblue;
 }
 #response{
-    background-color:lightblue;
+    background-color:#eaf5fd;
     padding:2em;
     width:20em;
 }
@@ -38,7 +41,7 @@ footer{
     width:5%;
 }
 .logo{
-    width:200px;
+    width:250px;
 }
 input{
     margin:.5em;
@@ -48,8 +51,8 @@ input{
         width:600px;
     }
 }
-@media screen and (min-width:1024px){
+/*@media screen and (min-width:1024px){
     main{
         width:800px;
     }
-}
+}*/
