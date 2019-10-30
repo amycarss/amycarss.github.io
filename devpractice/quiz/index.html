@@ -22,39 +22,76 @@
         <input id="adjuncts" type="checkbox" name="adjuncts" value="Adjuncts"><label for="adjuncts">Adjuncts</label><br>
         <input id="lecturers" type="checkbox" name="lecturers" value="Lecturers"><label for="lecturers">Lecturers</label><br>
         <input id="postdocs" type="checkbox" name="postdocs" value="Postdocs"><label for="postdocs">Postdocs</label><br>
-        <input id="profpractice" type="checkbox" name="profpractice" value="Professors of practice"><label for="prof-practice">Professors of practice</label><br>
+        <input id="profpractice" type="checkbox" name="profpractice" value="Professors of practice"><label for="profpractice">Professors of practice</label><br>
         <input id="researchers" type="checkbox" name="researchers" value="Researchers"><label for="researchers">Researchers</label><br>
-        <input id="tenuretrack" type="checkbox" name="tenuretrack" value="Tenure-track faculty"><label for="tenure-track">Tenure-track faculty</label><br>
+        <input id="tenuretrack" type="checkbox" name="tenuretrack" value="Tenure-track faculty"><label for="tenuretrack">Tenure-track faculty</label><br>
         <input id="button" type="button" value="Done!" onclick="checker();" aria-label="submit"><!--switched to type="button". type="submit" causes it to submit and refresh the page-->
     </fieldset>
     </form>
     
-    <div id="explain">
-        <div id="response">
+    <article id="explain">
+        <div id="response" role="dialog">
             <h2>Thanks! </h2>
             <h3 id="result"></h3>
         </div>
            <h3>Here's why it matters</h3>
            <h2>Inclusive language: Faculty</h2>
 
-       <p> Please be aware when you use the term faculty, it should be inclusive of <span class="emphasize">everyone the university classifies as faculty</span>. This includes:</p>
+       <p> Please be aware when you use the term faculty, it should be inclusive of <span class="emphasize" role="presentation">everyone the university classifies as faculty</span>. This includes:</p>
        <ul>
-           <li><span class="emphasize">Tenure-track faculty</span> (tenured, tenure-track)</li>
-           <li><span class="emphasize">Research-track faculty</span> (research professors, research scientists, research investigators)</li>
-           <li><span class="emphasize">Lecturers</span></li>
-           <li><span class="emphasize">Professors of practice</span> (clinical professors)</li>
+           <li><span class="emphasize" role="presentation">Tenure-track faculty</span> (tenured, tenure-track)</li>
+           <li><span class="emphasize" role="presentation">Research-track faculty</span> (research professors, research scientists, research investigators)</li>
+           <li><span class="emphasize" role="presentation">Lecturers</span></li>
+           <li><span class="emphasize" role="presentation">Professors of practice</span> (clinical professors)</li>
         </ul>
         <p>Faculty is an inclusive term. Department websites present a very visible opportunity to reinforce inclusiveness, but this guideline should apply to all communications. So whenever you type the word “faculty,” stop for a moment and think about what you mean. </p>
         
-       <p><img src="assets/check.png" class="shrink" alt=""> CORRECT: All subcategories are included within “Faculty”.</p> 
-       <img src="assets/navimage.jpg" id="nav-example" alt="navigation example showing all faculty types included under faculty heading"/>
+       <div class="col1" role="presentation"><p><img src="assets/check.png" class="shrink" alt=""> For example, its OK to do this:</p> 
+       <ul class="samplenav">
+           <li>People</li>
+           <ul class="parentnav">
+               <li>Administration</li>
+                <li>Faculty</li>
+                <ul class="childnav">
+                    <li>Emeritus</li>
+                    <li>Joint</li>
+                    <li>Lecturers</li>
+                    <li>Research</li>
+                    <li>Tenure-track</li>
+                    <li>Clinical</li>
+                </ul>
+                <li>Staff</li>
+            </ul>
+        </ul>
+
+        </div>
+        <div class="col2" role="presentation">
+                <p><img src="assets/redx.png" class="shrink" alt=""> But not this:</p> 
+                <ul class="samplenav">
+                    <li>People</li>
+                    <ul class="parentnav">
+                        <li>Administration</li>
+                         <li>Faculty</li>
+                         <ul class="childnav">
+                             <li>Emeritus</li>
+                             <li>Joint</li>
+                             <li>Tenure-track</li>
+                             <li>Clinical</li>
+                         </ul>
+                         <li>Lecturers</li>
+                         <li>Researchers</li>
+                         <li>Staff</li>
+                     </ul>
+                 </ul>
+        </div>
+       
         <p>Avoid using “faculty” when any of the four groups is excluded, and instead specify which groups you mean.</p>
 
 <h3>Core Faculty</h3>
 <p>Also, be careful about using the label “Core” as it relates to faculty. “Core” should not be used to distinguish one faculty group from another (for example, referring to only tenure-track faculty as Core Faculty and grouping them apart from Research Faculty and Lecturers). 
 
 “Core” should relate to a faculty member’s level of appointment or activity within a department. (So, for example, a faculty member with a dry appointment might not be listed among Core Faculty, but a lecturer who teaches exclusively within your department would.)</p>
-    </div>
+</article>
     </main>
     <footer>
         <p></p>

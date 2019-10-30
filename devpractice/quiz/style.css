@@ -5,7 +5,7 @@ body{
     grid-template-columns: 15% auto 15%;
     grid-template-rows:50px 9f 1f 50px;
 }
-h1, h2{
+h1, h2, .samplenav{
     font-family: 'Open Sans', sans-serif;
 }
 header{
@@ -35,9 +35,22 @@ footer{
     padding:2em;
     width:20em;
 }
+
+.samplenav{
+    color:#00274c;
+    text-transform: uppercase;
+    font-weight: bold;
+    list-style-type: none;
+}
+.parentnav{
+    text-transform: capitalize;
+    list-style-type:none;
+    font: weight 400;
+}
 /*image style*/
 .shrink{
     width:5%;
+    margin-top:.5em;
 }
 .logo{
     width:250px;
