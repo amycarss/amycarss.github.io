@@ -45,13 +45,14 @@ footer{
 .samplenav{
     color:#00274c;
     text-transform: uppercase;
-    font-weight: bold;
     list-style-type: none;
 }
 .parentnav{
     text-transform: capitalize;
     list-style-type:none;
-    font: weight 400;
+}
+.childnav{
+    font-size:.95em;
 }
 /*image style*/
 .shrink{
