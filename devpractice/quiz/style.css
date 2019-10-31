@@ -40,6 +40,8 @@ footer{
     background-color:#eaf5fd;
     padding:2em;
     width:20em;
+    box-shadow: 4px 4px 10px lightgrey;
+    /*border:1px solid #00274c;*/
 }
 
 .samplenav{
