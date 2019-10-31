@@ -18,6 +18,12 @@ main{
     width:340px;
     margin:5%;
 }
+.examples{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 footer{
     grid-column:1 / span 3;
     grid-row:5 / span 1;
@@ -61,6 +67,9 @@ input{
 @media screen and (min-width:640px){
     main{
         width:600px;
+    }
+    .examples{
+        flex-direction: row;
     }
 }
 /*@media screen and (min-width:1024px){
