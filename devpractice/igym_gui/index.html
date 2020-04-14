@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iGYM GUI</title>
+    <style>
+body{
+    min-width:400px;
+}
+.panel{
+    min-width:390px;
+    max-width:680px;
+    background-color:beige;
+    border:1px solid #000;
+}
+.search{
+    line-height:1.25;
+}
+    </style>
+</head>
+<body>
+    <header>
+<h1>iGym</h1>
+<form id="login"><label for="login">Login</label><input type="text" id="login" name="login" aria-label="login"/></form>
+    </header>
+    <main>
+        <div id="realTimeStats">
+            <form><label for="pick-game">Select Game</label><input type="hidden" name="q" class="search" id="pick-game" aria-label="login"/></form>
+<div id="gameScore">
+<p class="score">5</p><p class="score">2</p>
+</div>
+        </div><!--realtimeStats-->
+       
+        <div class="panel" id="playerConfig">
+
+        </div><!--playerConfig-->-->
+       
+        <div class="panel" id="savedConfig">
+
+        </div><!--savedConfig-->
+        
+        <div class="panel" id="video">
+
+        </div><!--video-->
+        
+        <div class=" panel" id="developer">
+
+        </div><!--developer-->
+    </main>
+</body>
+</html>
