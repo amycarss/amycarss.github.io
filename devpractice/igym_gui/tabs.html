@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/css/coreui.min.css">
+    <style>
+     .collapse .row{margin-bottom:.5em;}
+    </style>
+</head>
+<body>
+  
+            <!--basic tabbed panels-->
+<div class="tab-panel">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="player-tab" data-toggle="tab" href="#player" role="tab" aria-controls="home" aria-selected="true">Player</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="saved-tab" data-toggle="tab" href="#saved" role="tab" aria-controls="profile" aria-selected="false">Saved</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="contact" aria-selected="false">Video</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="dev-tab" data-toggle="tab" href="#dev" role="tab" aria-controls="contact" aria-selected="false">Developer</a>
+      </li>
+    </ul>
+    
+    <div class="tab-content" id="myTabContent" role="navigation">
+        <div class="tab-pane fade show active" id="player" role="tabpanel" aria-labelledby="player-tab">
+          <h3>Kick Button Settings</h3>
+           <div class="accordion" id="playerSettings" role="navigation">
+                <div class="card">
+                  <div class="card-header" id="player1">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Player 1
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="Player1" data-parent="#playerSettings">
+                    <div class="card-body">
+                        <div class="container">
+                          <form>
+                          <div class="row form-group">
+                            <div class="col-3">
+                              <label for="player-name-1">Player Name</label>
+                            </div>
+                            <div class="col-4">
+                              <input class="form-control form-control-sm" type="text" id="player-name-1" name="player-name">
+                            </div>
+                          </div>
+
+                          <div class="row form-group">
+                            <div class="col-5">
+                              <label for="circle-size-1">Circle Expansion Size (1-10)</label>
+                            </div>
+                            <div class="col-2">
+                              <input class="form-control form-control-sm" type="number" id="circle-size-1" name="circle-size" step="1">
+                            </div>
+                          </div>
+
+                          <div class="row form-group">
+                            <div class="col-5">
+                              <label for="circle-speed-1">Circle Expansion Speed (1-10)</label>
+                            </div>
+                            <div class="col-2">
+                              <input class="form-control form-control-sm" type="number" id="circle-speed-1" name="circle-speed" step="1">
+                            </div>
+                          </div>
+
+                          <div class="row form-group">
+                            <div class="col-5">
+                              <label for="hold-seconds-1">Hold time (seconds)</label>
+                            </div>
+                            <div class="col-2">
+                              <input class="form-control form-control-sm" type="number" id="hold-seconds-1" name="hold-seconds" step=".5">
+                            </div>
+                          </div>
+                  
+                       
+                        <div class="custom-control custom-switch mb-5 form-group">
+                          <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                          <label class="custom-control-label" for="customSwitch1">Apply settings to all kick buttons</label>
+                        </div>  
+                        <div class="row d-flex justify-content-between form-group">
+                          <div>
+                            <input type="submit" value="Delete" aria-label="delete button">
+                          </div>
+                          <div>
+                            <input type="submit" value="Apply" aria-label="apply button">
+                          </div>
+                        </form>
+                        </div><!--end container-->
+                      </div><!--end player1 params-->
+                    </div><!--end.card-body-->
+                  </div><!--end#player1-->
+                </div><!--end.card-->
+                <div class="card"><!--start a new card-->
+                  <div class="card-header" id="player2"><!--begin player2 params-->
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                         Player 2
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-3">
+                            <label for="player-name-1">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-1" name="player-name">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-size-1">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-size-1" name="circle-size" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-speed-1">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-speed-1" name="circle-speed" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="hold-seconds-1">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="hold-seconds-1" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                        <div>
+                          <input type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                      </div><!--end container-->
+                    </div><!--end player2 params-->
+                  </div><!--end.card-body-->
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="player3">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Player 3
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-3">
+                            <label for="player-name-1">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-1" name="player-name">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-size-1">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-size-1" name="circle-size" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-speed-1">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-speed-1" name="circle-speed" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="hold-seconds-1">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="hold-seconds-1" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                        <div>
+                          <input type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                      </div><!--end container-->
+                    </div><!--end player3 params-->
+                  </div><!--end.card-body-->
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="player4">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                        Player 4
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-3">
+                            <label for="player-name-1">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-1" name="player-name">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-size-1">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-size-1" name="circle-size" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-speed-1">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-speed-1" name="circle-speed" step="1">
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="hold-seconds-1">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="hold-seconds-1" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                        <div>
+                          <input type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                      </div><!--end container-->
+                    </div><!--end player4 params-->
+                  </div><!--end.card-body-->
+                  </div>
+                </div>
+              </div><!--end accordion-->        
+        </div>
+        <div class="tab-pane fade border border-secondary rounded-bottom" id="saved" role="tabpanel" aria-labelledby="saved-tab">
+            <h3>Saved Game</h3>
+            <p>Interface that loads saved settings</p>
+        </div>
+
+        <div class="tab-pane fade border border-secondary rounded-bottom" id="video" role="tabpanel" aria-labelledby="video-tab">
+        <h3>Video</h3>
+            <p>video player would go here</p>
+        </div>
+        <div class="tab-pane fade border border-secondary rounded-bottom" id="dev" role="tabpanel" aria-labelledby="developer-tab">
+            <h3>Debugger</h3>
+            <p>debug tab for developers</p>
+        </div>   
+    </div>
+
+              
+             
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9&#43;4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

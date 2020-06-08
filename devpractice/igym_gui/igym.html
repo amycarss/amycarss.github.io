@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iGYM GUI - Bootstrap version</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/css/coreui.min.css">
+<style>
+  input{
+    margin:0 1em;
+  }
+  .card{
+    margin-bottom:.5em;
+  }
+  .card-header{
+    padding:0;
+  }
+
+  h3{
+    padding:.5em 0;
+    border-bottom:.5px solid;
+  }
+  .collapse .row, #courtParams .row{
+    margin-bottom:.5em;
+    }
+ 
+</style>
+</head>
+<body>
+  <header>
+    <nav class="navbar bg-light flex-md-nowrap pl-10 pr-10 shadow">
+      <h1>iGym</h1>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+          Login
+        </button>
+    </nav>        
+  </header>
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" role="dialog">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">User Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" id="username" name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" name="password" id="password" class="form-control">
+                </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Log In</button>
+            </div>
+          </form>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!--end header and modal-->
+    <main class="p-3">
+        <div id="gameChoice" class="container">
+          <div class="row">
+            <form>
+              <div class="col-sm">
+                <select class="custom-select custom-select-md mb-3">
+                <option selected>Select Game</option>
+                <option id="soccerHockey">Soccer/Air hockey</option>
+                  <option id="pacman">Pac man</option>
+                  <option id="soccerPower">Soccer with power-up</option>
+                  <option id="euchre">Euchre</option>  
+                </select>
+              </div>
+            </form>
+            <div class="col-sm"><button class="btn btn-secondary">Recapture background</button></div>
+          </div>
+            </div>     
+        <div class="container text-center"><button class="btn btn-primary mt-2 mb-4">START/STOP</button></div>
+        <!--tabbed panels-->
+        <div class="tab-panel">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="player-tab" data-toggle="tab" href="#player" role="tab" aria-controls="button1" aria-selected="true">Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="saved-tab" data-toggle="tab" href="#saved" role="tab" aria-controls="button2" aria-selected="false">Saved</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="video-tab" data-toggle="tab" href="#video" role="tab" aria-controls="button3" aria-selected="false">Video</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="dev-tab" data-toggle="tab" href="#dev" role="tab" aria-controls="button4" aria-selected="false">Developer</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active show" id="player" role="tabpanel" aria-labelledby="player-tab">
+              <h3>Kick Button Settings</h3>
+              <div class="accordion" id="playerSettings" role="navigation">
+                <div class="card">
+                  <div class="card-header" id="button1">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Button 1
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseOne" class="collapse show" aria-labelledby="button1" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <form>
+                        <div class="row form-group">
+                          <div class="col-3">
+                            <label for="player-name-1">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-1" name="player-name">
+                          </div>
+                         
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="circle-size-1">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" id="circle-size-1" value="3" name="circle-size" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="circle-speed-1">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="circle-speed-1" name="circle-speed" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="hold-seconds-1">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="hold-seconds-1" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5 form-group">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between form-group">
+                        <div>
+                          <input class="btn btn-secondary" type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input class="btn btn-primary" type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                        </div>
+                      </form>
+                      </div><!--end container-->
+                    </div><!--end button1 params-->
+                  </div><!--end.card-body-->
+                  </div><!--end#button1-->
+                </div><!--end.card-->
+                <div class="card"><!--start a new card-->
+                  <div class="card-header" id="button2"><!--begin button2 params-->
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" id="headingTwo" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                         Button 2
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <form>
+                        <div class="container">
+                      
+                        <div class="row form-group" >
+                          <div class="col-3">
+                            <label for="player-name-2">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-2" name="player-name">
+                          </div>
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="circle-size-2">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="circle-size-2" name="circle-size" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="circle-speed-2">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="circle-speed-2" name="circle-speed" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row form-group">
+                          <div class="col-5">
+                            <label for="hold-seconds-2">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="hold-seconds-2" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5 form-group">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                        <label class="custom-control-label" for="customSwitch2">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                          <div>
+                            <input class="btn btn-secondary" type="submit" value="Delete" aria-label="delete button">
+                          </div>
+                          <div>
+                            <input class="btn btn-primary" type="submit" value="Apply" aria-label="apply button">
+                          </div>
+                      </div>
+                        
+                      </div><!--end container-->
+                    </form> 
+                    </div><!--end button2 params-->
+                  </div><!--end.card-body-->
+                  </div>
+        
+                <div class="card">
+                  <div class="card-header" id="button3">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" id="headingThree" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Button 3
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-3">
+                            <label for="player-name-3">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-3" name="player-name">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-size-3">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="circle-size-3" name="circle-size" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-speed-3">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="circle-speed-3" name="circle-speed" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="hold-seconds-3">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="hold-seconds-3" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch3">
+                        <label class="custom-control-label" for="customSwitch3">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                        <div>
+                          <input class="btn btn-secondary" type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input class="btn btn-primary" type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                      </div><!--end container-->
+                    </div><!--end button3 params-->
+                  </div><!--end.card-body-->
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="button4">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link collapsed" id="headingFour" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                        Button 4
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#playerSettings">
+                    <div class="card-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-3">
+                            <label for="player-name-4">Player Name</label>
+                          </div>
+                          <div class="col-4">
+                            <input class="form-control form-control-sm" type="text" id="player-name-4" name="player-name">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-size-4">Circle Expansion Size (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" value="3" type="number" id="circle-size-4" name="circle-size" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="circle-speed-4">Circle Expansion Speed (1-10)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" value="3" type="number" id="circle-speed-4" name="circle-speed" step="1">
+                          </div>
+                        </div>
+        
+                        <div class="row">
+                          <div class="col-5">
+                            <label for="hold-seconds-4">Hold time (seconds)</label>
+                          </div>
+                          <div class="col-2">
+                            <input class="form-control form-control-sm" type="number" value="3" id="hold-seconds-4" name="hold-seconds" step=".5">
+                          </div>
+                        </div>
+                
+                     
+                      <div class="custom-control custom-switch mb-5">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch4">
+                        <label class="custom-control-label" for="customSwitch4">Apply settings to all kick buttons</label>
+                      </div>  
+                      <div class="row d-flex justify-content-between">
+                        <div>
+                          <input class="btn btn-secondary" type="submit" value="Delete" aria-label="delete button">
+                        </div>
+                        <div>
+                          <input class="btn btn-primary" type="submit" value="Apply" aria-label="apply button">
+                        </div>
+                      </div><!--end container-->
+                    </div><!--end button4 params-->
+                  </div><!--end.card-body-->
+                 </div>
+                </div>
+              
+              
+                <div id="courtParams">
+                  <h3>Court Settings</h3>
+                  <div class="card pt-4">
+                  <form>
+                    <div class="container">
+                    <div class="row form-group">           
+                      <div class="col-3"><label for="ball-speed-max">Ball Speed Max (1-10)</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="ball-speed-max" name="ball-speed-max" value="3" min="0" max="10" step="1"></div>
+                    </div> 
+                    <div class="row form-group">  
+                      <div class="col-3"><label for="goal-size">Goal Size (1-5)</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="goal-size" name="goal-size" value="3" min="0" max="10" step="1"></div>
+                    </div> 
+                    <div class="row form-group"> 
+                      <div class="col-3"><label for="friction">Friction (seconds)</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="friction" name="friction" value="3" min="0" max="10" step="1"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col-3"><label for="boundary-elasticity">Boundary Elasticity</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="boundary-elasticity" value="3" name="boundary-elasticity" min="0" max="10" step="1"></div>
+                    </div>
+                    <div class="row form-group"> 
+                      <div class="col-3"><label for="circle-elasticity">Circle Elasticity (1-10)</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="circle-elasticity" value="3" name="circle-elasticity" min="0" max="10" step="1"></div>
+                    </div>
+                    <div class="row form-group"> 
+                      <div class="col-3"><label for="circle-coefficient">Circle Coefficient(1-10)</label></div>
+                      <div class="col-5"><input class="form-control-sm" type="number" id="circle-coefficient" value="3" name="circle-coefficient" min="0" max="10" step="1"></div>
+                    </div>
+                  </div><!--container-->
+                </form>
+              </div>
+                </div><!--end court setup-->    
+               
+                <div id="soundSelect">
+                  <h3>Sound Settings</h3>
+                  <div class="card pt-4">
+                  <form>
+                  <div class="container form-group">
+                      <div class="row">
+                        <div class="col-3">
+                          <label for="kick">Kick</label>
+                        </div>
+                        <div class="col-sm">
+                      <select class="custom-select mb-3" id="kick">
+                        <option selected>Select Kick Sound</option>
+                        <option>sound 1</option>
+                        <option>sound  2</option>
+                        <option>sound  3</option>
+                        <option>sound  4</option>
+                        <option>sound  5</option>      
+                      </select>
+                    </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary">Test</button>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-3">
+                          <label for="boundary">Boundary</label>
+                        </div>
+                        <div class="col-sm">
+                      <select class="custom-select mb-3" id="boundary">
+                        <option selected>Select Boundary Sound</option>
+                        <option>sound 1</option>
+                        <option>sound  2</option>
+                        <option>sound  3</option>
+                        <option>sound  4</option>
+                        <option>sound  5</option>  
+                      </select>
+                    </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary">Test</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-3">
+                        <label for="goal">Goal</label>
+                      </div>
+                      <div class="col-sm">
+                      <select class="custom-select mb-3" id="goal">
+                        <option selected>Select Goal Sound</option>
+                        <option>sound 1</option>
+                        <option>sound  2</option>
+                        <option>sound  3</option>
+                        <option>sound  4</option>
+                        <option>sound  5</option>  
+                      </select>
+                    </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary">Test</button>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-3">
+                          <label for="celebrate">Celebration</label>
+                        </div>
+                        <div class="col-sm">
+                      <select class="custom-select mb-3" id="celebrate">
+                        <option selected>Select Celebration Sound</option>
+                        <option>sound 1</option>
+                        <option>sound 2</option>
+                        <option>sound 3</option>
+                        <option>sound 4</option>
+                        <option>sound 5</option>  
+                      </select>
+                    </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary">Test</button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-3">
+                        <label for="gameover">Game-Over</label>
+                      </div>
+                      <div class="col-sm">
+                      <select class="custom-select mb-3" id="gameover">
+                        <option selected>Select Game-Over Sound</option>
+                        <option>sound 1</option>
+                        <option>sound 2</option>
+                        <option>sound 3</option>
+                        <option>sound 4</option>
+                        <option>sound 5</option>  
+                      </select>   
+                    </div>
+                      <div class="col-sm">
+                        <button type="button" class="btn btn-primary">Test</button>
+                      </div> 
+                    </div>  
+                  </div>
+                </form>
+              </div>    
+                </div><!--end sound settings-->
+               
+                <div id="videoToggle"><!--video settings-->
+                  <h3>Video</h3>
+                  <div class="card pt-4">
+                  <div class="container">
+                    <div class="custom-control custom-switch form-group">
+                      <input type="checkbox" class="custom-control-input" id="customSwitchVid">
+                      <label class="custom-control-label" for="customSwitchVid">Enable Recording</label>
+                    </div>   
+                  </div>  
+                </div>
+                </div>
+                <div class="container d-flex justify-content-around mt-2 mb-4">
+              <button id="apply" class="btn btn-primary">Apply Game Parameters</button>
+                </div>        
+                <!--modal to name and save game-->
+                <div id="savesettings" class="container d-flex justify-content-around mt-2 mb-2">
+                    <button id="save" class="btn btn-secondary" data-toggle="modal" data-target="#savesettingsModal">Save Game Settings</button>
+                    <div class="modal fade" id="savesettingsModal" tabindex="-1" role="dialog" aria-labelledby="savesettingsModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content" role="dialog">
+                          <div class="modal-header" role="dialog">
+                            <h5 class="modal-title" id="savesettingsModalLabel">Save Game Settings</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          
+                          <div class="modal-body" role="dialog">
+                            <form>
+                              <div class="form-group" role="dialog">
+                                <label for="gamename">Name</label>
+                                <input type="text" id="gamename" name="gamename" class="form-control">
+                              </div>
+                            </form>
+              
+                          <div class="modal-footer" role="dialog">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>    
+                </div>
+        
+              </div><!--end accordion--> 
+        
+        
+         
+              <div class="tab-pane fade border border-secondary rounded-bottom" id="saved" role="tabpanel" aria-labelledby="saved-tab">
+                <h3>Saved Game</h3>
+                <p>Interface that loads saved settings</p>
+            </div>
+        
+            <div class="tab-pane fade border border-secondary rounded-bottom" id="video" role="tabpanel" aria-labelledby="video-tab">
+            <h3>Video</h3>
+                <p>video player would go here</p>
+            </div>
+            <div class="tab-pane fade border border-secondary rounded-bottom" id="dev" role="tabpanel" aria-labelledby="developer-tab">
+          
+               <h3>Debugger</h3>
+                <p>debug tab for developers</p>
+        
+            </div>
+            </div>  
+        </div> 
+    </main>
+    <!-- Optional JavaScript -->
+ <!-- Popper.js first, then CoreUI JS -->
+ <script src="https://code.jquery.com/jquery-2.2.4.js"
+integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js" integrity="sha384-L2pyEeut/H3mtgCBaUNw7KWzp5n9&#43;4pDQiExs933/5QfaTh8YStYFFkOzSoXjlTb" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ <script src="https://unpkg.com/@coreui/coreui@3.0.0-rc.0/dist/js/coreui.min.js"></script>
+</body>
+</html>
