@@ -13,6 +13,9 @@ main, fieldset {
   width: 500px;
   margin: 0 auto 10px;
 }
+#submit{
+  margin:0 auto;
+}
 .label,
 .scorefield {
   display: flex;
@@ -22,7 +25,7 @@ main, fieldset {
   padding: 10px;
 }
 .label {
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid #00274c;
 }
 input,
 label {
