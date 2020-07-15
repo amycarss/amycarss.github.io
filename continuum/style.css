@@ -1,0 +1,42 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  grid-template-columns: 15% auto 15%;
+  grid-template-rows: 50px 9f 1f 50px;
+  line-height: 19px;
+}
+
+fieldset {
+  width: 500px;
+  margin: 0 auto 10px;
+}
+.label,
+.scorefield {
+  display: flex;
+  justify-content: space-between;
+}
+.score {
+  padding: 10px;
+}
+.label {
+  border-bottom: 5px solid black;
+}
+input,
+label {
+  display: block;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    width: 600px;
+  }
+  .examples {
+    flex-direction: row;
+  }
+}
+#submit {
+  padding: 10px 20px;
+  background-color: #00274c;
+  border: #00274c;
+  color: #fff;
+}
