@@ -1,5 +1,5 @@
 const scriptURL =
-  ["https://script.google.com/macros/s/AKfycbw-x2gHmWccuxvivJPRKap6N25vPFTWvgjDiOzvWwXPHvZ6-Gc/exec"];
+  "https://script.google.com/macros/s/AKfycbw-x2gHmWccuxvivJPRKap6N25vPFTWvgjDiOzvWwXPHvZ6-Gc/exec";
 const form = document.forms["in_tension_survey"];
 
 form.addEventListener("submit", (e) => {
