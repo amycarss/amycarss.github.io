@@ -2,6 +2,12 @@ body {
   font-family: "Open Sans", sans-serif;
    line-height: 19px;
 }
+h3{
+  width:150px;
+}
+.logo{
+  width:250px;
+}
 
 main, fieldset {
   width: 500px;
