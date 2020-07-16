@@ -3,7 +3,7 @@ const form = document.forms["in_tension_survey"]
 form.addEventListener('submit', e => {
   e.preventDefault()
   fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => console.log('Success!', response))
-    .then(() => window.location.replace("success_page.html"))
+    .then(response => console.log('Success!', response),
+    window.location.replace("success_page.html"))
     .catch(error => console.error('Error!', error.message))
 });
